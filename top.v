@@ -42,8 +42,22 @@ keyboard kb (
     .l(key_state3),
     .enter(key_state6)
 );
+
+//游戏控制模块
+game_control g0(
+    .clk(clk),
+    .rst(rst),
+    .key0(key_state0),
+    .key1(key_state1),
+    .key2(key_state2),
+    .key3(key_state3),
+    .score(score),
+    .combo(combo),
+)
+
+//显示模块
 vgac vga_sync (
-    .vga_clk(clk),
+    .vga_clk(clk_div[1]),
     .clrn(rst),
     .d_in({color_r,color_g,color_b}),
     .hs(hs),
@@ -51,8 +65,15 @@ vgac vga_sync (
     .r(color_r),
     .g(color_g),
     .b(color_b),
-    .rdn(debugled),
+    // .rdn(debugled),
     .col_addr(x),
     .row_addr(y)
+);
+
+//音频模块
+audio a0(
+    .clk(clk),
+    .rst(rst),
+    .audio(audio)
 );
 endmodule 
