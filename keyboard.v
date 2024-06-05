@@ -9,10 +9,9 @@ input					rst,			    //系统复位，低有效
 input					key_clk,			//PS2键盘时钟输入
 input					key_data,			//PS2键盘数据输入
 // output	reg				key_state,			//键盘的按下状态，按下置1，松开置0
-// output	reg		[7:0]	key_ascii			//按键键值对应的ASCII编码
+output		[7:0]	key_byte,			//按键键值对应的编码
 output reg              a,s,k,l,enter            //按键,按下置1，松开置0
 );
-
 reg		key_clk_flag0 = 1'b1,key_clk_flag1 = 1'b1; 
 reg		key_data_flag0 = 1'b1,key_data_flag1 = 1'b1;
 //对键盘时钟数据信号进行延时锁存
@@ -35,11 +34,17 @@ wire	key_clk_neg = key_clk_flag1 & (~key_clk_flag0);
  
 reg				[3:0]	cnt; 
 reg				[7:0]	temp_data;
+assign key_byte = temp_data;
 //根据键盘的时钟信号的下降沿读取数据
 always @ (posedge clk or negedge rst) begin
 	if(!rst) begin
 		cnt <= 4'd0;
 		temp_data <= 8'd0;
+		a <= 1'b0;
+		s <= 1'b0;
+		k <= 1'b0;
+		l <= 1'b0;
+		enter <= 1'b0;
 	end else if(key_clk_neg) begin 
 		if(cnt >= 4'd10) cnt <= 4'd0;
 		else cnt <= cnt + 1'b1;//当前是第几个数据
@@ -71,7 +76,7 @@ always @ (posedge clk or negedge rst) begin
             key_break <= 1'b1;	//收到断码（8'hf0）表示按键松开，下一个数据为断码，设置断码标示为1
 		else if(!key_break) begin 	//当断码标示为0时，表示当前数据为按下数据
             case(temp_data)
-                8'h1c: a <= 1'b1;   //A
+                8'b00011100: a <= 1'b1;   //A
                 8'h1b: s <= 1'b1;   //S
                 8'h42: k <= 1'b1;   //K
                 8'h4b: l <= 1'b1;   //L
