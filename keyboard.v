@@ -65,7 +65,7 @@ reg						key_break = 1'b0;
 always @ (posedge clk or negedge rst) begin 
 	if(!rst) begin
 		key_break <= 1'b0;
-		key_byte <= 1'b0;
+		// key_byte <= 1'b0;
 	end else if(cnt==4'd10 && key_clk_neg) begin 
 		if(temp_data == 8'hf0) 
             key_break <= 1'b1;	//收到断码（8'hf0）表示按键松开，下一个数据为断码，设置断码标示为1
