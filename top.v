@@ -17,7 +17,8 @@ module top(
     output [15:0]   combo,          //连击数
     output [15:0]       debugled    //链接led灯进行调试
 )
-wire x,y; // 坐标
+wire [8:0] x;
+wire [9:0] y; // 坐标
 
 wire key_state0,key_state1,key_state2,key_state3
 
@@ -34,8 +35,8 @@ div_res div0 (
 keyboard kb (
     .clk(clk),
     .rst(rst),
-    .key_clk(key_state0),
-    .key_data(key_state1),
+    .key_clk(),
+    .key_data(),
     .a(key_state0),
     .s(key_state1),
     .k(key_state2),

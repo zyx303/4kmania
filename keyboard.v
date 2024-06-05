@@ -4,19 +4,19 @@
 
 module keyboard //将键盘键码转化为ASCII码
 (
-input					clk_in,				//系统时钟
+input					clk,				//系统时钟
 input					rst,			    //系统复位，低有效
 input					key_clk,			//PS2键盘时钟输入
 input					key_data,			//PS2键盘数据输入
 // output	reg				key_state,			//键盘的按下状态，按下置1，松开置0
 // output	reg		[7:0]	key_ascii			//按键键值对应的ASCII编码
-output reg              a,s,k,l,enter;            //按键,按下置1，松开置0
+output reg              a,s,k,l,enter            //按键,按下置1，松开置0
 );
 
 reg		key_clk_flag0 = 1'b1,key_clk_flag1 = 1'b1; 
 reg		key_data_flag0 = 1'b1,key_data_flag1 = 1'b1;
 //对键盘时钟数据信号进行延时锁存
-always @ (posedge clk_in or negedge rst) begin
+always @ (posedge clk or negedge rst) begin
 	if(!rst) begin
 		key_clk_flag0 <= 1'b1;
 		key_clk_flag1 <= 1'b1;
@@ -36,7 +36,7 @@ wire	key_clk_neg = key_clk_flag1 & (~key_clk_flag0);
 reg				[3:0]	cnt; 
 reg				[7:0]	temp_data;
 //根据键盘的时钟信号的下降沿读取数据
-always @ (posedge clk_in or negedge rst) begin
+always @ (posedge clk or negedge rst) begin
 	if(!rst) begin
 		cnt <= 4'd0;
 		temp_data <= 8'd0;
@@ -62,7 +62,7 @@ end
  
 reg						key_break = 1'b0;   
 //根据通码和断码判定按键的当前是按下还是松开
-always @ (posedge clk_in or negedge rst) begin 
+always @ (posedge clk or negedge rst) begin 
 	if(!rst) begin
 		key_break <= 1'b0;
 		key_byte <= 1'b0;
