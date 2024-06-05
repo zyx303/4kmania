@@ -44,11 +44,11 @@ set_property -dict {PACKAGE_PIN M22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports 
 set_property -dict {PACKAGE_PIN M21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {vs}];
 
 # PS/2 键盘
-set_property -dict {PACKAGE_PIN N18  IOSTANDARD LVCMOS33} [get_ports {ps2_clk}];
-set_property -dict {PACKAGE_PIN M19  IOSTANDARD LVCMOS33} [get_ports {ps2_data}];
+set_property -dict {PACKAGE_PIN N18  IOSTANDARD LVCMOS33} [get_ports {key_clk}];
+set_property -dict {PACKAGE_PIN M19  IOSTANDARD LVCMOS33} [get_ports {key_data}];
 
 # Arduino LED
-set_property -dict {PACKAGE_PIN W23  IOSTANDARD LVCMOS33} [get_ports {LED[0]}];
+set_property -dict {PACKAGE_PIN W23  IOSTANDARD LVCMOS33} [get_ports {led}];
 set_property -dict {PACKAGE_PIN AB26 IOSTANDARD LVCMOS33} [get_ports {LED[1]}];
 set_property -dict {PACKAGE_PIN Y25  IOSTANDARD LVCMOS33} [get_ports {LED[2]}];
 set_property -dict {PACKAGE_PIN AA23 IOSTANDARD LVCMOS33} [get_ports {LED[3]}];
