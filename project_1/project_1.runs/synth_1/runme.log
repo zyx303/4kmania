@@ -1,0 +1,41 @@
+
+*** Running vivado
+    with args -log kb_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source kb_top.tcl
+
+
+ECHO 处于关闭状态。
+ECHO 处于关闭状态。
+
+****** Vivado v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source kb_top.tcl -notrace
+Command: synth_design -top kb_top -part xc7k160tffg676-2L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k160t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k160t'
+INFO: [Device 21-403] Loading part xc7k160tffg676-2L
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 19872
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:03 . Memory (MB): peak = 1341.324 ; gain = 438.477
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'kb_top' [D:/desktop/shuluo/project/4kmania/kb_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'keyboard1' [D:/desktop/shuluo/project/4kmania/keyboard1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'keyboard1' (0#1) [D:/desktop/shuluo/project/4kmania/keyboard1.v:5]
+ERROR: [Synth 8-11365] for the instance 'uut0' of module 'keyboard1' declared at 'D:/desktop/shuluo/project/4kmania/keyboard1.v:5', named port connection 'key_byte' does not exist [D:/desktop/shuluo/project/4kmania/kb_top.v:30]
+ERROR: [Synth 8-6156] failed synthesizing module 'kb_top' [D:/desktop/shuluo/project/4kmania/kb_top.v:1]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:04 . Memory (MB): peak = 1447.672 ; gain = 544.824
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+9 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Thu Jun  6 17:30:36 2024...
