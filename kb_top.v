@@ -4,10 +4,9 @@ module kb_top(
     input key_data,
     input key_clk,
     // output [4:0]led
-    output led
+    output reg a,s,k,l
 );
 
-wire a,s,k,l,enter;
 
 // keyboard kb0(
 //     .clk(clk),
@@ -22,30 +21,34 @@ wire a,s,k,l,enter;
 // )
 wire [7:0] key_byte;
 wire state;
-keyboard1 uut (
+keyboard1 uut0 (
     .clk_in(clk),
     .rst(rst),
     .key_clk(key_clk),
     .key_data(key_data),
-    .key_ascii(key_byte),
-    .key_state(led)
+    .key_state(state),
+    .key_byte(key_byte)
 );
 
-// always @(posedge clk) begin
-//     case(key_byte)
-//         8'h1c: a <= 1;
-//         8'hf0: a <= 0;
-//         8'h1b: s <= 1;
-//         8'hf0: s <= 0;
-//         8'h25: k <= 1;
-//         8'hf0: k <= 0;
-//         8'h26: l <= 1;
-//         8'hf0: l <= 0;
-//         8'h5a: enter <= 1;
-//         8'hf0: enter <= 0;
-//         default: ;
 
-// end
+always @(posedge clk) begin
+    if(state)begin 
+        case(key_byte)
+            8'h1c: a <= 1;
+            8'h1b: s <= 1;
+            8'h42: k <= 1;
+            8'h4B: l <= 1;
+    //        8'h5a: enter <= 1;
+            default: ;
+        endcase
+    end
+    else begin
+        a<=0;
+        s<=0;
+        k<=0;
+        l<=0;
+    end
+end
 
 
 
