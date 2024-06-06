@@ -9,7 +9,7 @@ input					rst,			//系统复位，低有效
 input					key_clk,			//PS2键盘时钟输入
 input					key_data,			//PS2键盘数据输入
 output	reg				key_state,			//键盘的按下状态，按下置1，松开置0
-output	reg		[7:0]	key_ascii			//按键键值对应的ASCII编码
+output	reg		[7:0]	key_byte			//按键键值对应的ASCII编码
 );
 
 reg		key_clk_r0 = 1'b1,key_clk_r1 = 1'b1; 
@@ -80,23 +80,23 @@ always @ (posedge clk_in or negedge rst) begin
 	end
 end
  
-//将键盘返回的有效键值转换为按键字母对应的ASCII码
-always @ (key_byte) begin
-	case (key_byte)    //translate key_byte to key_ascii
-		8'h75: key_ascii <= 8'd1;//上箭头
-		8'h72: key_ascii <= 8'd2;//下箭头
-		8'h6b: key_ascii <= 8'd3;//左箭头
-		8'h74: key_ascii <= 8'd4;//右箭头
-		8'h5a: key_ascii <= 8'd13;   //回车
-		8'h1a: key_ascii <= 8'h5a;   //Z
-		8'h22: key_ascii <= 8'h58;   //X
-		8'h21: key_ascii <= 8'h43;   //C
-		8'h2a: key_ascii <= 8'h56;   //V
-		8'h32: key_ascii <= 8'h42;   //B
-		8'h31: key_ascii <= 8'h4e;   //N
-		8'h3a: key_ascii <= 8'h4d;   //M
-		default: key_ascii=0;		//nothing
-	endcase
-end
+////将键盘返回的有效键值转换为按键字母对应的ASCII码
+//always @ (key_byte) begin
+//	case (key_byte)    //translate key_byte to key_ascii
+//		8'h75: key_ascii <= 8'd1;//上箭头
+//		8'h72: key_ascii <= 8'd2;//下箭头
+//		8'h6b: key_ascii <= 8'd3;//左箭头
+//		8'h74: key_ascii <= 8'd4;//右箭头
+//		8'h5a: key_ascii <= 8'd13;   //回车
+//		8'h1a: key_ascii <= 8'h5a;   //Z
+//		8'h22: key_ascii <= 8'h58;   //X
+//		8'h21: key_ascii <= 8'h43;   //C
+//		8'h2a: key_ascii <= 8'h56;   //V
+//		8'h32: key_ascii <= 8'h42;   //B
+//		8'h31: key_ascii <= 8'h4e;   //N
+//		8'h3a: key_ascii <= 8'h4d;   //M
+//		default: key_ascii=0;		//nothing
+//	endcase
+//end
  
 endmodule

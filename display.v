@@ -1,29 +1,41 @@
 module display(
-    input clk,
+    input clk,         // Higher frequency clock input
     input key0, key1, key2, key3,
     input rst,
-    output hs, vs, // horizontal and vertical sync
-    input [3:0] color_r,
-    input [3:0] color_g,
-    input [3:0] color_b,
+    output hs, vs,     // horizontal and vertical sync
     output [3:0] r,
     output [3:0] g,
     output [3:0] b
 );
 
-    wire vga_clk;
+    reg vga_clk;
+    reg [1:0] clk_divider; // Adjust size as needed based on input clock frequency
+
+    // Clock Divider to generate 25MHz VGA clock from higher frequency input clock
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            clk_divider <= 2'd0;
+            vga_clk <= 1'b0;
+        end else begin
+            clk_divider <= clk_divider + 1'd1;
+            if (clk_divider == 2'd3) begin // Adjust division ratio based on input clock frequency
+                clk_divider <= 2'd0;
+                vga_clk <= ~vga_clk;
+            end
+        end
+    end
+
     wire clrn;
     wire [11:0] d_in;
     wire [8:0] row_addr;
     wire [9:0] col_addr;
     wire rdn;
     
-    // Generate VGA clock and clear signal
-    assign vga_clk = clk; // Assuming clk is 25MHz, else use a clock divider
+    // Generate clear signal
     assign clrn = ~rst;   // Active low reset
 
     // Define red color input
-    assign d_in = {color_b, color_g, color_r}; // 12-bit color input
+    assign d_in = {4'h0, 4'h0, 4'hF}; // 12-bit color input (red)
 
     // Instantiating vgac module
     vgac vga_sync (
@@ -39,11 +51,5 @@ module display(
         .hs(hs),
         .vs(vs)
     );
-
-    // Setting the entire screen to red
-    // Assuming color_r, color_g, color_b are inputs for the desired color
-    assign color_r = 4'hF; // Full red
-    assign color_g = 4'h0; // No green
-    assign color_b = 4'h0; // No blue
 
 endmodule
