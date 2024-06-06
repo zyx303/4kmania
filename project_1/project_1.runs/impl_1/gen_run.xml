@@ -1,93 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7k160tffg676-2L" LaunchTime="1717666314">
-  <File Type="ROUTE-PWR" Name="kb_top_power_routed.rpt"/>
-  <File Type="PA-TCL" Name="kb_top.tcl"/>
-  <File Type="ROUTE-PWR-SUM" Name="kb_top_power_summary_routed.pb"/>
-  <File Type="REPORTS-TCL" Name="kb_top_reports.tcl"/>
-  <File Type="OPT-RQA-PB" Name="kb_top_rqa_opted.pb"/>
-  <File Type="BITSTR-MMI" Name="kb_top.mmi"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="kb_top_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="kb_top_timing_summary_init.rpt"/>
-  <File Type="OPT-TIMING" Name="kb_top_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="kb_top_opt.dcp"/>
-  <File Type="OPT-DRC" Name="kb_top_drc_opted.rpt"/>
-  <File Type="OPT-HWDEF" Name="kb_top.hwdef"/>
-  <File Type="PWROPT-DCP" Name="kb_top_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="kb_top_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="kb_top_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="kb_top_placed.dcp"/>
-  <File Type="PLACE-IO" Name="kb_top_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="kb_top_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="kb_top_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="kb_top_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="kb_top_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="kb_top_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="kb_top_incremental_reuse_pre_placed.rpt"/>
-  <File Type="BG-BIN" Name="kb_top.bin"/>
-  <File Type="PLACE-TIMING" Name="kb_top_timing_summary_placed.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="kb_top_power_routed.rpx"/>
-  <File Type="PLACE-RQA-PB" Name="kb_top_rqa_placed.pb"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="kb_top_postplace_pwropt.dcp"/>
-  <File Type="BITSTR-MSK" Name="kb_top.msk"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="kb_top_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="kb_top_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="kb_top_drc_physopted.rpt"/>
-  <File Type="BITSTR-RBT" Name="kb_top.rbt"/>
-  <File Type="PHYSOPT-TIMING" Name="kb_top_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="kb_top_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="kb_top_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="kb_top_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="kb_top_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="kb_top_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="kb_top_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="kb_top_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="kb_top_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="kb_top_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-RQS-PB" Name="kb_top_rqs_routed.pb"/>
-  <File Type="ROUTE-STATUS" Name="kb_top_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="kb_top_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="kb_top_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="kb_top_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="kb_top_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="kb_top_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="kb_top_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW" Name="kb_top_bus_skew_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="kb_top_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="kb_top_bus_skew_routed.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="kb_top_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="kb_top_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="kb_top_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="kb_top_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="kb_top_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="kb_top_bus_skew_postroute_physopted.rpt"/>
-  <File Type="BG-BIT" Name="kb_top.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="kb_top_bus_skew_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="kb_top_bus_skew_postroute_physopted.rpx"/>
-  <File Type="BITSTR-NKY" Name="kb_top.nky"/>
-  <File Type="BITSTR-BMM" Name="kb_top_bd.bmm"/>
-  <File Type="PDI-FILE" Name="kb_top.pdi"/>
-  <File Type="BOOT-PDI-FILE" Name="kb_top_boot.pdi"/>
-  <File Type="PL-PDI-FILE" Name="kb_top_pld.pdi"/>
-  <File Type="RCFI_FILE" Name="kb_top.rcfi"/>
-  <File Type="CFI_FILE" Name="kb_top.cfi"/>
-  <File Type="RNPI_FILE" Name="kb_top.rnpi"/>
-  <File Type="NPI_FILE" Name="kb_top.npi"/>
-  <File Type="RBD_FILE" Name="kb_top.rbd"/>
+<GenRun Id="impl_1" LaunchPart="xc7k160tffg676-2L" LaunchTime="1717666865">
+  <File Type="ROUTE-PWR" Name="display_power_routed.rpt"/>
+  <File Type="PA-TCL" Name="display.tcl"/>
+  <File Type="ROUTE-PWR-SUM" Name="display_power_summary_routed.pb"/>
+  <File Type="REPORTS-TCL" Name="display_reports.tcl"/>
+  <File Type="BITSTR-MSK" Name="display.msk"/>
+  <File Type="ROUTE-CLK" Name="display_clock_utilization_routed.rpt"/>
+  <File Type="RDI-RDI" Name="display.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="display_bus_skew_postroute_physopted.pb"/>
+  <File Type="BG-BIT" Name="display.bit"/>
+  <File Type="BG-DRC" Name="display.drc"/>
+  <File Type="BG-BGN" Name="display.bgn"/>
+  <File Type="BG-BIN" Name="display.bin"/>
+  <File Type="BITSTR-RBT" Name="display.rbt"/>
+  <File Type="BITSTR-NKY" Name="display.nky"/>
+  <File Type="BITSTR-BMM" Name="display_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="display.mmi"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="display_methodology_drc_routed.rpt"/>
+  <File Type="BITSTR-SYSDEF" Name="display.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="kb_top.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="kb_top.sysdef"/>
-  <File Type="BG-BGN" Name="kb_top.bgn"/>
-  <File Type="BG-DRC" Name="kb_top.drc"/>
-  <File Type="RDI-RDI" Name="kb_top.vdi"/>
+  <File Type="BITSTR-LTX" Name="display.ltx"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="ROUTE-RQS" Name="kb_top_routed.rqs"/>
-  <File Type="POSTROUTE-PHYSOPT-RQS" Name="kb_top_postroute_physopted.rqs"/>
+  <File Type="OPT-DRC" Name="display_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="display.hwdef"/>
+  <File Type="PLACE-IO" Name="display_io_placed.rpt"/>
+  <File Type="PLACE-UTIL" Name="display_utilization_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="display_utilization_placed.pb"/>
+  <File Type="PLACE-CTRL" Name="display_control_sets_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="display_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-DRC" Name="display_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-PB" Name="display_drc_routed.pb"/>
+  <File Type="ROUTE-PWR-RPX" Name="display_power_routed.rpx"/>
+  <File Type="ROUTE-STATUS" Name="display_route_status.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="display_route_status.pb"/>
+  <File Type="ROUTE-DCP" Name="display_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="display_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="display_routed_bb.dcp"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="display_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-TIMING-PB" Name="display_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMING-RPX" Name="display_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-SIMILARITY" Name="display_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW" Name="display_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="display_bus_skew_routed.pb"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="display_bus_skew_routed.rpx"/>
+  <File Type="OPT-DCP" Name="display_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="display_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="display_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="display_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="display_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="display_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="display_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="display_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="display_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="display_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="display_bus_skew_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="display_bus_skew_postroute_physopted.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="display_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-DRC-RPX" Name="display_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="display_methodology_drc_routed.rpx"/>
+  <File Type="PDI-FILE" Name="display.pdi"/>
+  <File Type="BOOT-PDI-FILE" Name="display_boot.pdi"/>
+  <File Type="PL-PDI-FILE" Name="display_pld.pdi"/>
+  <File Type="RCFI_FILE" Name="display.rcfi"/>
+  <File Type="CFI_FILE" Name="display.cfi"/>
+  <File Type="RNPI_FILE" Name="display.rnpi"/>
+  <File Type="NPI_FILE" Name="display.npi"/>
+  <File Type="RBD_FILE" Name="display.rbd"/>
+  <File Type="ROUTE-RQS" Name="display_routed.rqs"/>
+  <File Type="POSTROUTE-PHYSOPT-RQS" Name="display_postroute_physopted.rqs"/>
   <File Type="ROUTE-RQS-RPT" Name="route_report_qor_suggestions_0.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-RQS-RPT" Name="postroute_physopt_report_qor_suggestions_0.rpt"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PPRDIR/../vgac.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../display.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PPRDIR/../keyboard1.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -95,6 +96,7 @@
     </File>
     <File Path="$PPRDIR/../kb_top.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -102,13 +104,12 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="kb_top"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="display"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1" RelGenDir="$PGENDIR/constrs_1">
     <Filter Type="Constrs"/>
-    <File Path="$PPRDIR/../constraints_kb_top.xdc">
+    <File Path="$PPRDIR/../constraints_display.xdc">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -120,14 +121,20 @@
   </FileSet>
   <FileSet Name="utils" Type="Utils" RelSrcDir="$PSRCDIR/utils_1" RelGenDir="$PGENDIR/utils_1">
     <Filter Type="Utils"/>
+    <File Path="$PSRCDIR/utils_1/imports/synth_1/kb_top.dcp">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedInSteps" Val="synth_1"/>
+        <Attr Name="AutoDcp" Val="1"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="TopAutoSet" Val="TRUE"/>
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2023"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>
@@ -137,5 +144,6 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>

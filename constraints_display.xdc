@@ -28,20 +28,20 @@ set_property -dict {PACKAGE_PIN AA10  IOSTANDARD LVCMOS15} [get_ports {rst}];
 #set_property -dict {PACKAGE_PIN AF10  IOSTANDARD LVCMOS15} [get_ports {SW[15]}];
 
 ## VGA
-#set_property -dict {PACKAGE_PIN T20   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[0]}];
-#set_property -dict {PACKAGE_PIN R20   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[1]}];
-#set_property -dict {PACKAGE_PIN T22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[2]}];
-#set_property -dict {PACKAGE_PIN T23   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[3]}];
-#set_property -dict {PACKAGE_PIN R22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[0]}];
-#set_property -dict {PACKAGE_PIN R23   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[1]}];
-#set_property -dict {PACKAGE_PIN T24   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[2]}];
-#set_property -dict {PACKAGE_PIN T25   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[3]}];
-#set_property -dict {PACKAGE_PIN N21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[0]}];
-#set_property -dict {PACKAGE_PIN N22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[1]}];
-#set_property -dict {PACKAGE_PIN R21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[2]}];
-#set_property -dict {PACKAGE_PIN P21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[3]}];
-#set_property -dict {PACKAGE_PIN M22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {hs}];
-#set_property -dict {PACKAGE_PIN M21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {vs}];
+set_property -dict {PACKAGE_PIN T20   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[0]}];
+set_property -dict {PACKAGE_PIN R20   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[1]}];
+set_property -dict {PACKAGE_PIN T22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[2]}];
+set_property -dict {PACKAGE_PIN T23   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {b[3]}];
+set_property -dict {PACKAGE_PIN R22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[0]}];
+set_property -dict {PACKAGE_PIN R23   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[1]}];
+set_property -dict {PACKAGE_PIN T24   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[2]}];
+set_property -dict {PACKAGE_PIN T25   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {g[3]}];
+set_property -dict {PACKAGE_PIN N21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[0]}];
+set_property -dict {PACKAGE_PIN N22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[1]}];
+set_property -dict {PACKAGE_PIN R21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[2]}];
+set_property -dict {PACKAGE_PIN P21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {r[3]}];
+set_property -dict {PACKAGE_PIN M22   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {hs}];
+set_property -dict {PACKAGE_PIN M21   IOSTANDARD LVCMOS33 SLEW FAST} [get_ports {vs}];
 
 ## PS/2 键盘
 set_property -dict {PACKAGE_PIN N18  IOSTANDARD LVCMOS33} [get_ports {key_clk}];
