@@ -47,7 +47,7 @@ set_property -dict {PACKAGE_PIN AA10  IOSTANDARD LVCMOS15} [get_ports {rst}];
 set_property -dict {PACKAGE_PIN N18  IOSTANDARD LVCMOS33} [get_ports {key_clk}];
 set_property -dict {PACKAGE_PIN M19  IOSTANDARD LVCMOS33} [get_ports {key_data}];
 
-# Arduino LED
+# Arduino LED xlk
 set_property -dict {PACKAGE_PIN W23  IOSTANDARD LVCMOS33} [get_ports {a}];
 set_property -dict {PACKAGE_PIN AB26 IOSTANDARD LVCMOS33} [get_ports {s}];
 set_property -dict {PACKAGE_PIN Y25  IOSTANDARD LVCMOS33} [get_ports {l}];
