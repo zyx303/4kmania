@@ -3,12 +3,12 @@
 # SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
 # IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
 # SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
-# Start of session at: Thu Jun  6 17:41:08 2024
-# Process ID: 27240
+# Start of session at: Sun Jun  9 12:19:51 2024
+# Process ID: 23668
 # Current directory: D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1
-# Command line: vivado.exe -log display.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source display.tcl
-# Log file: D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1/display.vds
+# Command line: vivado.exe -log display_test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source display_test.tcl
+# Log file: D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1/display_test.vds
 # Journal file: D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1\vivado.jou
 # Running On: DESKTOP-1U5LP56, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 24, Host memory: 34074 MB
 #-----------------------------------------------------------
-source display.tcl -notrace
+source display_test.tcl -notrace
