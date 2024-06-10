@@ -1,34 +1,43 @@
 module top(
     input clk,
-    input rst,                 //重置
-    input [4:0] keys,          //5个按键
-    input key_state,           //按键状态
+    input rst,                 //重置,低位有效
     input [1:0] music_id,      //第几首歌
 
-    output reg [3:0]    color_r,    //R
-    output reg [3:0]    color_g,    //G
-    output reg [3:0]    color_b,    //B
-    output     wire     hs,         //行同步
-    output     wire     vs,         //场同步
+//  键盘
+    input key_data,
+    input key_clk,
 
-    output wire audio // 音频
+    output[3:0]    r,    //R
+    output[3:0]    g,    //G
+    output[3:0]    b,    //B
+    output     wire     hs,         //horizontal sync
+    output     wire     vs,         //virtical sync
 
-    output [31:0]   score,          //分数
-    output [15:0]   combo,          //连击数
-    output [15:0]       debugled    //链接led灯进行调试
-)
-wire [8:0] x;
-wire [9:0] y; // 坐标
+    // output wire audio, // 音频
 
-wire key_state0,key_state1,key_state2,key_state3; // 按键状态
+    // output [31:0]   score,          //score
+    // output [15:0]   combo           //combo
+    output [3:0]       debugled    //led
+);
+// 坐标
+wire [9:0] x;
+wire [8:0] y; 
+
+// 按键
+wire key_state0,key_state1,key_state2,key_state3; 
+
+assign debugled[0] = key_state0;
+assign debugled[1] = key_state1;
+assign debugled[2] = key_state2;
+assign debugled[3] = key_state3;
 
 
 //分频时钟
 wire [31:0] div_res;
-div_res div0 (
+clk_div clk_div_inst (
     .clk(clk),
-    .res(0),
-    .div_res(div_res)
+    .rst(rst),
+    .clkdiv(div_res)
 );
 
 //键盘输入
@@ -40,8 +49,11 @@ kb_top kb (
     .a(key_state0),
     .s(key_state1),
     .k(key_state2),
-    .l(key_state3),
+    .l(key_state3)
 );
+
+
+wire [479:0] track0,track1,track2,track3;
 
 //游戏控制模块
 game_control g0(
@@ -51,33 +63,39 @@ game_control g0(
     .key1(key_state1),
     .key2(key_state2),
     .key3(key_state3),
-    .score(score),
-    .combo(combo),
+    // .score(score),
+    // .combo(combo),
     .track0(track0),
     .track1(track1),
     .track2(track2),
     .track3(track3),
-    .sw(music_id)
+    .sw(2'b00)
 );
 
 //显示模块
 display disp0 (
-    .clk(clk),
-    .vga_clk(clk_div[1]),
-    .track0(track0),
-    .track1(track1),
-    .track2(track2),
-    .track3(track3),
-    .key0(key_state0),
-    .key1(key_state1),
-    .key2(key_state2),
-    .key3(key_state3),
+   .clk(clk),
+   .vga_clk(div_res[1]),
+   .rst(rst),
+   .track0(track0),
+   .track1(track1),
+   .track2(track2),
+   .track3(track3),
+   .key0(key_state0),
+   .key1(key_state1),
+   .key2(key_state2),
+   .key3(key_state3),
+   .hs(hs),
+   .vs(vs),
+   .r(r),
+   .g(g),
+   .b(b)
 );
 
 //音频模块
-audio a0(
-    .clk(clk),
-    .rst(rst),
-    .audio(audio)
-);
+// audio a0(
+//     .clk(clk),
+//     .rst(rst),
+//     .audio(audio)
+// );
 endmodule 
