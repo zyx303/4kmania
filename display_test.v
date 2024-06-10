@@ -5,26 +5,26 @@ module display_test(
     output hs, vs,     // horizontal and vertical sync
     output [3:0] r,
     output [3:0] g,
-    output [3:0] b
+    output [3:0] b,
+    output [8:0] x,
+    output [9:0] y
 );
 
     wire [31:0]clk_div;
+    wire rstn = !rst;
     clk_div clk_div_inst (
         .clk(clk),
-        .rst(rst),
-        .clk_div(clk_div)
+        .rst(rstn),
+        .clkdiv(clk_div)
     );
 
 
-    wire clrn;
     wire [11:0] d_in;
-    wire [8:0] x;
-    wire [9:0] y;
     wire rdn;
     
 
     // Define red color input
-    assign d_in = rdn?12'h000:12'h00f; // 12-bit color input (red)
+    assign d_in = rdn?12'h000:12'h223; // 12-bit color input (red)
 
     // Instantiating vgac module
     vgac vga_sync (
