@@ -4,63 +4,60 @@ module game_control(
     input key0,key1,key2,key3,
     output [31:0] score,
     output [15:0] combo, //连击
-    input readspeed; //读谱速度
-    input [1:0] sw;//选歌
-    output reg [479:0] track0,track1,track2,track3;//四个轨道
+    input [1:0] sw,//选歌
+    output reg [479:0] track0,track1,track2,track3,  //四个轨道
+    output [10:0] readAddr,
+    output [31:0] timecnt,
+    output [15:0] readcnt
 );
 
 reg [15:0] combo0,combo1,combo2,combo3; // 连击
-reg [31:0] score0,score1,score2,score3; //四个轨道对应的分数
+reg [31:0] score0,score1,score2,score3; //四个轨道对应的score
 assign score = score0 + score1 + score2 + score3; //总分
 assign combo = combo0 + combo1 + combo2 + combo3;//总combo
-reg [31:0] holdcnt;//按住的时间
+reg [15:0] holdcnt;//按住的time
 reg [31:0] timecnt;//时间计数
-reg [15:0] readAddr;//读谱地址
+reg [10:0] readAddr;//读谱地址
 reg [15:0] readcnt;//读谱计数
-reg [15:0] fallspeed;//下落速度
-reg [15:0] fallcnt;//下落计数
+reg [31:0] fallcnt;//下落计数
+wire [3:0] data0,data1,data2,data3;
+
 
 //实例化铺面
-box_rom0 box0(
-    .clk(clk),
-    .in(readAddr),
-    .out(data0)
+blk_mem_gen_0 box0(
+    .clka(clk),
+    .addra(readAddr),
+    .ena(1'b1),
+    .douta(data0)
 );
-box_rom1 box1(
-    .clk(clk),
-    .in(readAddr),
-    .out(data1)
-);
-box_rom2 box2(
-    .clk(clk),
-    .in(readAddr),
-    .out(data2)
-);
-box_rom3 box3(
-    .clk(clk),
-    .in(readAddr),
-    .out(data3)
-);
+// box_rom1 box1(
+//     .clk(clk),
+//     .in(readAddr),
+//     .out(data1)
+// );
+// box_rom2 box2(
+//     .clk(clk),
+//     .in(readAddr),
+//     .out(data2)
+// );
+// box_rom3 box3(
+//     .clk(clk),
+//     .in(readAddr),
+//     .out(data3)
+// );
 
 //选择铺面
 reg [3:0] track;
 always @(posedge clk) begin
     case(sw) 
         2'b00: track <= data0;
-        2'b01: track <= data1;
-        2'b10: track <= data2;
-        2'b11: track <= data3;
+        // 2'b01: track <= data1;
+        // 2'b10: track <= data2;
+        // 2'b11: track <= data3;
     endcase 
 end
 
-reg miss0,miss1,miss2,miss3;//miss
-
-integer readspeed = 1000;
-integer fallspeed = 1000;
-integer hold = 1000;
-
 reg[15:0] key0_cnt,key1_cnt,key2_cnt,key3_cnt;
-
 //按键时长
 always @(key0) begin
     if(key0) begin
@@ -95,25 +92,35 @@ always @(key3) begin
     end
 end
 
+reg miss0,miss1,miss2,miss3;//miss
+
+parameter[15:0] readspeed = 140;
+parameter[31:0] fallspeed = 800000;
+parameter[15:0] hold = 10;
+
 
 //音游逻辑
-always @(posedge clk or posedge rst) begin
+always @(posedge clk or negedge rst) begin
     if(!rst) begin
-        score <= 0; score0 <= 0; score1 <= 0; score2 <= 0; score3 <= 0;
-        combo <= 0; combo1 <= 0; combo2 <= 0; combo2 <= 0; combo3 <= 0;
+        score0 <= 0; score1 <= 0; score2 <= 0; score3 <= 0;
+        combo0 <= 0; combo1 <= 0; combo2 <= 0; combo3 <= 0;
         holdcnt <= 0;
         timecnt <= 0;
+        readcnt <= 0;
+        readAddr <= 0; 
         miss0 <= 1; miss1 <= 1; miss2 <= 1; miss3 <= 1;
+        track0 <= 0; track1 <= 0; track2 <= 0; track3 <= 0;
+        key0_cnt <= 0; key1_cnt <= 0; key2_cnt <= 0; key3_cnt <= 0;
     end 
+    //读谱
     else begin
-        //读谱
         if(readcnt == readspeed) begin
             readcnt <= 0;
             readAddr <= readAddr + 1;
-            track0[39:0] <= {39{track[0]}};
-            track1[39:0] <= {39{track[1]}};
-            track2[39:0] <= {39{track[2]}};
-            track3[39:0] <= {39{track[3]}};
+            track0[39:0] <= {40{track[0]}};
+            track1[39:0] <= {40{track[1]}};
+            track2[39:0] <= {40{track[2]}};
+            track3[39:0] <= {40{track[3]}};
         end
         else begin 
             timecnt <= timecnt + 1;
@@ -127,11 +134,11 @@ always @(posedge clk or posedge rst) begin
                 track2 <= track2 << 1;
                 track3 <= track3 << 1;
             end
-            
+                
 
             //按键得分逻辑
             //miss
-            if(tack0[445]&&!track0[444]) begin
+            if(track0[445]&&!track0[444]) begin
                 if(miss0) begin
                     combo0 <= 0;
                     miss0 <= 1;
@@ -140,7 +147,7 @@ always @(posedge clk or posedge rst) begin
                     miss0 <= 1;
                 end
             end
-            if(tack1[445]&&!track1[444]) begin
+            if(track1[445]&&!track1[444]) begin
                 if(miss1) begin
                     combo1 <= 0;
                     miss1 <= 1;
@@ -149,7 +156,7 @@ always @(posedge clk or posedge rst) begin
                     miss1 <= 1;
                 end
             end
-            if(tack2[445]&&!track2[444]) begin
+            if(track2[445]&&!track2[444]) begin
                 if(miss2) begin
                     combo2 <= 0;
                     miss2 <= 1;
@@ -158,7 +165,7 @@ always @(posedge clk or posedge rst) begin
                     miss2 <= 1;
                 end
             end
-            if(tack3[445]&&!track3[444]) begin
+            if(track3[445]&&!track3[444]) begin
                 if(miss3) begin
                     combo3 <= 0;
                     miss3 <= 1;
@@ -196,7 +203,7 @@ always @(posedge clk or posedge rst) begin
                     miss3 <= 0;
                 end
             end
-        end  
+        end
     end
 end
 

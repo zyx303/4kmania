@@ -3,16 +3,16 @@ set_property -dict {PACKAGE_PIN AC18  IOSTANDARD LVCMOS18} [get_ports {clk}];
 # FPGA RST
 # set_property -dict {PACKAGE_PIN W13   IOSTANDARD LVCMOS18} [get_ports {rst}];
 
-# 八位七段数码管
-set_property -dict {PACKAGE_PIN M24   IOSTANDARD LVCMOS33} [get_ports {SEGLED_CLK}];
-set_property -dict {PACKAGE_PIN M20   IOSTANDARD LVCMOS33} [get_ports {SEGLED_CLR}];
-set_property -dict {PACKAGE_PIN L24   IOSTANDARD LVCMOS33} [get_ports {SEGLED_DO}];
-set_property -dict {PACKAGE_PIN R18   IOSTANDARD LVCMOS33} [get_ports {SEGLED_PEN}];
+# 八位七段数码�?
+#set_property -dict {PACKAGE_PIN M24   IOSTANDARD LVCMOS33} [get_ports {SEGLED_CLK}];
+#set_property -dict {PACKAGE_PIN M20   IOSTANDARD LVCMOS33} [get_ports {SEGLED_CLR}];
+#set_property -dict {PACKAGE_PIN L24   IOSTANDARD LVCMOS33} [get_ports {SEGLED_DO}];
+#set_property -dict {PACKAGE_PIN R18   IOSTANDARD LVCMOS33} [get_ports {SEGLED_PEN}];
 
 # switch
 set_property -dict {PACKAGE_PIN AA10  IOSTANDARD LVCMOS15} [get_ports {rst}];
-#set_property -dict {PACKAGE_PIN AB10  IOSTANDARD LVCMOS15} [get_ports {SW[1]}];
-#set_property -dict {PACKAGE_PIN AA13  IOSTANDARD LVCMOS15} [get_ports {SW[2]}];
+set_property -dict {PACKAGE_PIN AB10  IOSTANDARD LVCMOS15} [get_ports {music_id[0]}];
+set_property -dict {PACKAGE_PIN AA13  IOSTANDARD LVCMOS15} [get_ports {music_id[1]}];
 #set_property -dict {PACKAGE_PIN AA12  IOSTANDARD LVCMOS15} [get_ports {SW[3]}];
 #set_property -dict {PACKAGE_PIN Y13   IOSTANDARD LVCMOS15} [get_ports {SW[4]}];
 #set_property -dict {PACKAGE_PIN Y12   IOSTANDARD LVCMOS15} [get_ports {SW[5]}];
@@ -48,10 +48,10 @@ set_property -dict {PACKAGE_PIN N18  IOSTANDARD LVCMOS33} [get_ports {key_clk}];
 set_property -dict {PACKAGE_PIN M19  IOSTANDARD LVCMOS33} [get_ports {key_data}];
 
 # Arduino LED
-set_property -dict {PACKAGE_PIN W23  IOSTANDARD LVCMOS33} [get_ports {a}];
-set_property -dict {PACKAGE_PIN AB26 IOSTANDARD LVCMOS33} [get_ports {s}];
-set_property -dict {PACKAGE_PIN Y25  IOSTANDARD LVCMOS33} [get_ports {l}];
-set_property -dict {PACKAGE_PIN AA23 IOSTANDARD LVCMOS33} [get_ports {k}];
+set_property -dict {PACKAGE_PIN W23  IOSTANDARD LVCMOS33} [get_ports {debugled[0]}];
+set_property -dict {PACKAGE_PIN AB26 IOSTANDARD LVCMOS33} [get_ports {debugled[1]}];
+set_property -dict {PACKAGE_PIN Y25  IOSTANDARD LVCMOS33} [get_ports {debugled[2]}];
+set_property -dict {PACKAGE_PIN AA23 IOSTANDARD LVCMOS33} [get_ports {debugled[3]}];
 #set_property -dict {PACKAGE_PIN Y23  IOSTANDARD LVCMOS33} [get_ports {LED[4]}];
 #set_property -dict {PACKAGE_PIN Y22  IOSTANDARD LVCMOS33} [get_ports {LED[5]}];
 #set_property -dict {PACKAGE_PIN AE21 IOSTANDARD LVCMOS33} [get_ports {LED[6]}];

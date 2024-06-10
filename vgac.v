@@ -1,5 +1,3 @@
-`timescale 1ns / 1ps
-
 module vgac (vga_clk,clrn,d_in,row_addr,col_addr,rdn,r,g,b,hs,vs); // vgac
    input     [11:0] d_in;     // bbbb_gggg_rrrr, pixel
    input            vga_clk;  // 25MHz

@@ -1,0 +1,9 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module blk_mem_gen_0
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/desktop/shuluo/project/4kmania/game_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_control
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'timecnt' is not allowed [D:/desktop/shuluo/project/4kmania/game_control.v:19]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'readAddr' is not allowed [D:/desktop/shuluo/project/4kmania/game_control.v:20]
+WARNING: [VRFC 10-9336] redeclaration of ANSI port 'readcnt' is not allowed [D:/desktop/shuluo/project/4kmania/game_control.v:21]
+INFO: [VRFC 10-2263] Analyzing Verilog file "D:/desktop/shuluo/project/4kmania/game_control_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module game_control_tb

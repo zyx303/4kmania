@@ -1,0 +1,21 @@
+Vivado Simulator v2023.2
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: E:/xilink/Vivado/2023.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L blk_mem_gen_v8_4_7 -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot game_control_tb_behav xil_defaultlib.game_control_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_output_stage(...
+Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_output_stage(...
+Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_7.blk_mem_gen_v8_4_7(C_FAMILY="kin...
+Compiling module xil_defaultlib.blk_mem_gen_0
+Compiling module xil_defaultlib.game_control
+Compiling module xil_defaultlib.game_control_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot game_control_tb_behav

@@ -5,19 +5,19 @@ module display_test(
     output hs, vs,     // horizontal and vertical sync
     output [3:0] r,
     output [3:0] g,
-    output [3:0] b,
-    output [8:0] x,
-    output [9:0] y
+    output [3:0] b
+//    output [8:0] x,
+//    output [9:0] y
 );
 
     wire [31:0]clk_div;
-    wire rstn = !rst;
     clk_div clk_div_inst (
         .clk(clk),
-        .rst(rstn),
+        .rst(rst),
         .clkdiv(clk_div)
     );
-
+    wire [8:0] x;
+    wire [9:0] y;
 
     wire [11:0] d_in;
     wire rdn;

@@ -1,0 +1,9 @@
+0.7
+2020.2
+Oct 13 2023
+20:47:58
+D:/desktop/shuluo/project/4kmania/game_control.v,1718009494,verilog,,D:/desktop/shuluo/project/4kmania/game_control_tb.v,,game_control,,,,,,,,
+D:/desktop/shuluo/project/4kmania/game_control_tb.v,1718007362,verilog,,,,game_control_tb,,,,,,,,
+D:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/blk_mem_gen_0/sim/blk_mem_gen_0.v,1718004642,verilog,,D:/desktop/shuluo/project/4kmania/game_control.v,,blk_mem_gen_0,,,,,,,,
+D:/desktop/shuluo/project/4kmania/project_1/project_1.sim/sim_1/behav/xsim/glbl.v,1697210495,verilog,,,,glbl,,,,,,,,
+D:/desktop/shuluo/project/4kmania/rom_tb.v,1718004722,verilog,,,,rom_tb,,,,,,,,
