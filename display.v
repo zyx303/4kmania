@@ -20,143 +20,169 @@ module display(
     // Define color inputs
     reg [11:0] color;
 
-    integer white = 12'b1111_1111_1111;
-    integer black = 12'b0000_0000_0000;
-    integer red = 12'b1111_0000_0000;
-    integer blue = 12'b1010_1100_1101;
-    integer gery = 12'b0111_0111_0111;
-    integer deep_gery = 12'b0100_0100_0100;
+    parameter [11:0] white = 12'b1111_1111_1111;
+//    parameter [11:0] black = 12'b0000_0000_0000;
+    parameter [11:0] black = 12'b1111_0000_0000;
+    parameter [11:0] blue = 12'b1111_0000_0000;
+    parameter [11:0] red = 12'b1010_1100_1101;
+    parameter [11:0] grey = 12'b0111_0111_0111;
+    parameter [11:0] deep_grey = 12'b0100_0100_0100;
 
 
     // Define red color input
-    assign d_in = color; // 12-bit color input (red)
-
+    assign d_in = rdn?12'h000:color; // 12-bit color input 
+//    assign d_in = (y>=240)?white:red;
     reg [3:0] type; // 0:边框 1:底部按键0 2:底部按键1 3:底部按键2 4:底部按键3 5:note0 6:note1 7:note2 8:note3
-    //9:track0 10:track1 11:track2 12:track3
+    //9:track0 10:track1 11:track2 12:track3 13:nothing
 
     // display
-    always @(posedge clk) begin
-        if (!rst) begin
-            type <= 3'd4;
+    always @(negedge rst) begin
+        if(!rst) begin
             color <= black;
+            type <= 4'd13;
+        end
+    end
+
+
+    always @(posedge clk) begin
         //音游区域 
-        end else if(x>=50 && x<=475) begin
+        if(x>=50 && x<=475) begin
             //边框
-            if(x>=50 && x<=475 && y>=440 && y<=445) begin //横边框
-                type <= 3'd2;
+            if(x>=50 && x<=475 && y>=440 && y<=445) begin //�???
+                type <= 4'd0;
             //竖直边框
             end else if(x>=50 && x<=55) begin
-                type <= 3'd2;
+                type <= 4'd0;
             end else if(x>=155 && x<=160) begin
-                type <= 3'd2;
+                type <= 4'd0;
             end else if(x>=260 && x<=265) begin
-                type <= 3'd2;
+                type <= 4'd0;
             end else if(x>=365&&x<=370) begin
-                type <= 3'd2;
+                type <= 4'd0;
             end else if(x>=470 && x<=475) begin
-                type <= 3'd2;
+                type <= 4'd0;
             end
             //底部按键
             else if(y>=445) begin
-                type <= 3'd3;
+                if(x>55 && x<155) begin
+                    type <= 4'd1;
+                end else if(x>160 && x<260) begin
+                    type <= 4'd2;
+                end else if(x>265 && x<365) begin
+                    type <= 4'd3;
+                end else if(x>370 && x<470) begin
+                    type <= 4'd4;
+                end
             end
             //note
             else if(track0[y] && x>55 && x<155) begin
-                type <= 3'd1;
+                type <= 4'd5;
             end else if(track1[y] && x>160 && x<260) begin
-                type <= 3'd1;
+                type <= 4'd6;
             end else if(track2[y] && x>265 && x<365) begin
-                type <= 3'd1;
+                type <= 4'd7;
             end else if(track3[y] && x>370 && x<470) begin
-                type <= 3'd1;
+                type <= 4'd8;
             end
             //track
             else begin
-                type <= 3'd0;
+                if(x>55 && x<155) begin
+                    type <= 4'd9;
+                end else if(x>160 && x<260) begin
+                    type <= 4'd10;
+                end else if(x>265 && x<365) begin
+                    type <= 4'd11;
+                end else if(x>370 && x<470) begin
+                    type <= 4'd12;
+                end
             end
         end
         else begin
-            type <= 3'd4;
+            type <= 4'd13;
         end
+        
     end
 
     always @(posedge clk) begin
         case(type) 
             //边框
-            3'd0: begin
-                color <= white;
+            4'd0: begin
+                color <= red;
             end
             //底部按键
-            3'd1: begin
+            4'd1: begin
                 if(key0) begin
                     color <= grey;
                 end else begin
-                    color <= deep_gery;
+                    color <= deep_grey;
                 end
             end
-            3'd2: begin
+            4'd2: begin
                 if(key1) begin
                     color <= grey;
                 end else begin
-                    color <= deep_gery;
+                    color <= deep_grey;
                 end
             end
-            3'd3: begin
+            4'd3: begin
                 if(key2) begin
                     color <= grey;
                 end else begin
-                    color <= deep_gery;
+                    color <= deep_grey;
                 end
             end
-            3'd4: begin
+            4'd4: begin
                 if(key3) begin
                     color <= grey;
                 end else begin
-                    color <= deep_gery;
+                    color <= deep_grey;
                 end
             end
             //note
-            3'd5: begin
+            4'd5: begin
                 color <= blue;
             end
-            3'd6: begin
+            4'd6: begin
                 color <= blue;
             end
-            3'd7: begin
+            4'd7: begin
                 color <= blue;
             end
-            3'd8: begin
+            4'd8: begin
                 color <= blue;
             end
 
             //track
-            3'd9: begin
+            4'd9: begin
                 if(key0) begin
                     color <= grey;
                 end else begin
                     color <= black;
                 end
             end
-            3'd10: begin
+            4'd10: begin
                 if(key1) begin
                     color <= grey;
                 end else begin
                     color <= black;
                 end
             end
-            3'd11: begin
+            4'd11: begin
                 if(key2) begin
                     color <= grey;
                 end else begin
                     color <= black;
                 end
             end
-            3'd12: begin
+            4'd12: begin
                 if(key3) begin
                     color <= grey;
                 end else begin
                     color <= black;
                 end
+            end
+            4'd13: begin
+                color <= black;
             end
         endcase 
     end
@@ -166,8 +192,8 @@ module display(
         .vga_clk(vga_clk),
         .clrn(rst),
         .d_in(d_in),
-        .row_addr(x),
-        .col_addr(y),
+        .row_addr(y),
+        .col_addr(x),
         .rdn(rdn),
         .r(r),
         .g(g),
