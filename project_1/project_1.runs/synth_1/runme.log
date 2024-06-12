@@ -1,0 +1,758 @@
+
+*** Running vivado
+    with args -log top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+
+
+ECHO 处于关闭状态。
+ECHO 处于关闭状态。
+
+****** Vivado v2023.2 (64-bit)
+  **** SW Build 4029153 on Fri Oct 13 20:14:34 MDT 2023
+  **** IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+  **** SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source top.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/utils_1/imports/synth_1/kb_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/utils_1/imports/synth_1/kb_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top top -part xc7k160tffg676-2L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7k160t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k160t'
+INFO: [Device 21-403] Loading part xc7k160tffg676-2L
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 20712
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1353.070 ; gain = 440.402
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'timecnt' is not allowed [D:/desktop/shuluo/project/4kmania/game_control.v:19]
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'readAddr' is not allowed [D:/desktop/shuluo/project/4kmania/game_control.v:20]
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'readcnt' is not allowed [D:/desktop/shuluo/project/4kmania/game_control.v:21]
+WARNING: [Synth 8-11121] redeclaration of ANSI port 'key_byte' is not allowed [D:/desktop/shuluo/project/4kmania/keyboard1.v:63]
+INFO: [Synth 8-11241] undeclared symbol 'a', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-11241] undeclared symbol 'b', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-11241] undeclared symbol 'c', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-11241] undeclared symbol 'd', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-11241] undeclared symbol 'e', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-11241] undeclared symbol 'f', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-11241] undeclared symbol 'g', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-11241] undeclared symbol 'p', assumed default net type 'wire' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:11]
+INFO: [Synth 8-6157] synthesizing module 'top' [D:/desktop/shuluo/project/4kmania/top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'clk_div' [D:/desktop/shuluo/project/4kmania/clk_div.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'clk_div' (0#1) [D:/desktop/shuluo/project/4kmania/clk_div.v:1]
+INFO: [Synth 8-6157] synthesizing module 'kb_top' [D:/desktop/shuluo/project/4kmania/kb_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'keyboard1' [D:/desktop/shuluo/project/4kmania/keyboard1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'keyboard1' (0#1) [D:/desktop/shuluo/project/4kmania/keyboard1.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'kb_top' (0#1) [D:/desktop/shuluo/project/4kmania/kb_top.v:1]
+INFO: [Synth 8-6157] synthesizing module 'dispnum' [D:/desktop/shuluo/project/4kmania/dispnum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'DisplayNumber' [D:/desktop/shuluo/project/4kmania/DisplayNumber.v:1]
+INFO: [Synth 8-6157] synthesizing module 'DisplaySync' [D:/desktop/shuluo/project/4kmania/DisplaySync.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Mux4to1b4' [D:/desktop/shuluo/project/4kmania/Mux4to1b4.v:1]
+INFO: [Synth 8-6157] synthesizing module 'Mux4to1' [D:/desktop/shuluo/project/4kmania/Mux4to1.v:9]
+INFO: [Synth 8-6157] synthesizing module 'AND_GATE' [D:/desktop/shuluo/project/4kmania/AND_GATE.v:9]
+	Parameter BubblesMask bound to: 65'b00000000000000000000000000000000000000000000000000000000000000000 
+INFO: [Synth 8-6155] done synthesizing module 'AND_GATE' (0#1) [D:/desktop/shuluo/project/4kmania/AND_GATE.v:9]
+INFO: [Synth 8-6157] synthesizing module 'OR_GATE_4_INPUTS' [D:/desktop/shuluo/project/4kmania/OR_GATE_4_INPUTS.v:9]
+	Parameter BubblesMask bound to: 65'b00000000000000000000000000000000000000000000000000000000000000000 
+INFO: [Synth 8-6155] done synthesizing module 'OR_GATE_4_INPUTS' (0#1) [D:/desktop/shuluo/project/4kmania/OR_GATE_4_INPUTS.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'Mux4to1' (0#1) [D:/desktop/shuluo/project/4kmania/Mux4to1.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'Mux4to1b4' (0#1) [D:/desktop/shuluo/project/4kmania/Mux4to1b4.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'DisplaySync' (0#1) [D:/desktop/shuluo/project/4kmania/DisplaySync.v:1]
+INFO: [Synth 8-6157] synthesizing module 'MyMC14495' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:1]
+WARNING: [Synth 8-567] referenced signal 'LE' should be on the sensitivity list [D:/desktop/shuluo/project/4kmania/MyMC14495.v:9]
+WARNING: [Synth 8-567] referenced signal 'point' should be on the sensitivity list [D:/desktop/shuluo/project/4kmania/MyMC14495.v:9]
+INFO: [Synth 8-6155] done synthesizing module 'MyMC14495' (0#1) [D:/desktop/shuluo/project/4kmania/MyMC14495.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'DisplayNumber' (0#1) [D:/desktop/shuluo/project/4kmania/DisplayNumber.v:1]
+INFO: [Synth 8-6157] synthesizing module 'SSeg_Dev' [D:/desktop/shuluo/project/4kmania/SSeg_Dev.v:1]
+INFO: [Synth 8-6157] synthesizing module 'P2S' [D:/desktop/shuluo/project/4kmania/P2S_io.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'P2S' (0#1) [D:/desktop/shuluo/project/4kmania/P2S_io.v:1]
+INFO: [Synth 8-6157] synthesizing module 'HexTo8SEG' [D:/desktop/shuluo/project/4kmania/HexTo8SEG.v:3]
+INFO: [Synth 8-6157] synthesizing module 'Hex2Seg' [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'Hex2Seg' (0#1) [D:/desktop/shuluo/project/4kmania/Hex2Seg.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'HexTo8SEG' (0#1) [D:/desktop/shuluo/project/4kmania/HexTo8SEG.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'SSeg_Dev' (0#1) [D:/desktop/shuluo/project/4kmania/SSeg_Dev.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'dispnum' (0#1) [D:/desktop/shuluo/project/4kmania/dispnum.v:1]
+INFO: [Synth 8-6157] synthesizing module 'game_control' [D:/desktop/shuluo/project/4kmania/game_control.v:1]
+INFO: [Synth 8-6157] synthesizing module 'blk_mem_gen_0' [D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1/.Xil/Vivado-6036-DESKTOP-1U5LP56/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'blk_mem_gen_0' (0#1) [D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1/.Xil/Vivado-6036-DESKTOP-1U5LP56/realtime/blk_mem_gen_0_stub.v:6]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/desktop/shuluo/project/4kmania/game_control.v:52]
+WARNING: [Synth 8-567] referenced signal 'key0_cnt' should be on the sensitivity list [D:/desktop/shuluo/project/4kmania/game_control.v:62]
+WARNING: [Synth 8-567] referenced signal 'key1_cnt' should be on the sensitivity list [D:/desktop/shuluo/project/4kmania/game_control.v:70]
+WARNING: [Synth 8-567] referenced signal 'key2_cnt' should be on the sensitivity list [D:/desktop/shuluo/project/4kmania/game_control.v:78]
+WARNING: [Synth 8-567] referenced signal 'key3_cnt' should be on the sensitivity list [D:/desktop/shuluo/project/4kmania/game_control.v:86]
+INFO: [Synth 8-6155] done synthesizing module 'game_control' (0#1) [D:/desktop/shuluo/project/4kmania/game_control.v:1]
+WARNING: [Synth 8-7071] port 'readAddr' of module 'game_control' is unconnected for instance 'g0' [D:/desktop/shuluo/project/4kmania/top.v:84]
+WARNING: [Synth 8-7071] port 'timecnt' of module 'game_control' is unconnected for instance 'g0' [D:/desktop/shuluo/project/4kmania/top.v:84]
+WARNING: [Synth 8-7071] port 'readcnt' of module 'game_control' is unconnected for instance 'g0' [D:/desktop/shuluo/project/4kmania/top.v:84]
+WARNING: [Synth 8-7023] instance 'g0' of module 'game_control' has 16 connections declared, but only 13 given [D:/desktop/shuluo/project/4kmania/top.v:84]
+INFO: [Synth 8-6157] synthesizing module 'display' [D:/desktop/shuluo/project/4kmania/display.v:1]
+INFO: [Synth 8-6157] synthesizing module 'vgac' [D:/desktop/shuluo/project/4kmania/vgac.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'vgac' (0#1) [D:/desktop/shuluo/project/4kmania/vgac.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'display' (0#1) [D:/desktop/shuluo/project/4kmania/display.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'top' (0#1) [D:/desktop/shuluo/project/4kmania/top.v:1]
+WARNING: [Synth 8-6014] Unused sequential element holdcnt_reg was removed.  [D:/desktop/shuluo/project/4kmania/game_control.v:107]
+WARNING: [Synth 8-7129] Port clk in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[31] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[30] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[29] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[28] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[27] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[26] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[25] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[24] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[23] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[22] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[21] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[20] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[19] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[16] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[15] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[14] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[13] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[12] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[11] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[10] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[9] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[8] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[7] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[6] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[5] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[4] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[3] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[2] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[1] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port clk_div[0] in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port rst in module DisplayNumber is either unconnected or has no load
+WARNING: [Synth 8-7129] Port music_id[1] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port music_id[0] in module top is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1474.949 ; gain = 562.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1474.949 ; gain = 562.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1474.949 ; gain = 562.281
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 1474.949 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'g0/box0'
+Finished Parsing XDC File [d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0/blk_mem_gen_0_in_context.xdc] for cell 'g0/box0'
+Parsing XDC File [D:/desktop/shuluo/project/4kmania/constraints_display.xdc]
+Finished Parsing XDC File [D:/desktop/shuluo/project/4kmania/constraints_display.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/desktop/shuluo/project/4kmania/constraints_display.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1576.203 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+系统找不到指定的路径。
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1576.203 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7k160tffg676-2L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property KEEP_HIERARCHY = SOFT for g0/box0. (constraint file  auto generated constraint).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'p_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:12]
+WARNING: [Synth 8-327] inferring latch for variable 'a_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:13]
+WARNING: [Synth 8-327] inferring latch for variable 'b_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:14]
+WARNING: [Synth 8-327] inferring latch for variable 'c_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:15]
+WARNING: [Synth 8-327] inferring latch for variable 'd_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:16]
+WARNING: [Synth 8-327] inferring latch for variable 'e_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:17]
+WARNING: [Synth 8-327] inferring latch for variable 'f_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:18]
+WARNING: [Synth 8-327] inferring latch for variable 'g_reg' [D:/desktop/shuluo/project/4kmania/MyMC14495.v:19]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 1     
+	   4 Input   32 Bit       Adders := 1     
+	   2 Input   16 Bit       Adders := 9     
+	   4 Input   16 Bit       Adders := 1     
+	   2 Input   11 Bit       Adders := 1     
+	   2 Input   10 Bit       Adders := 3     
+	   2 Input    9 Bit       Adders := 1     
+	   2 Input    4 Bit       Adders := 1     
++---Registers : 
+	              480 Bit    Registers := 4     
+	               32 Bit    Registers := 1     
+	               16 Bit    Registers := 9     
+	               12 Bit    Registers := 1     
+	               11 Bit    Registers := 1     
+	               10 Bit    Registers := 3     
+	                9 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                4 Bit    Registers := 5     
+	                1 Bit    Registers := 17    
++---Muxes : 
+	   2 Input  480 Bit        Muxes := 6     
+	   2 Input   32 Bit        Muxes := 1     
+	   2 Input   16 Bit        Muxes := 13    
+	   3 Input   11 Bit        Muxes := 1     
+	  13 Input    8 Bit        Muxes := 1     
+	   2 Input    8 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 108   
+	   5 Input    1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 600 (col length:100)
+BRAMs: 650 (col length: RAMB18 100 RAMB36 50)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port music_id[1] in module top is either unconnected or has no load
+WARNING: [Synth 8-7129] Port music_id[0] in module top is either unconnected or has no load
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m6/mc0/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS0/MSEG/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS1/MSEG/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS2/MSEG/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS3/MSEG/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS4/MSEG/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS5/MSEG/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS6/MSEG/g_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/p_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/a_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/b_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/c_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/d_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/e_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/f_reg) is unused and will be removed from module top.
+WARNING: [Synth 8-3332] Sequential element (disp1/m7/SM1/HTS7/MSEG/g_reg) is unused and will be removed from module top.
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[15]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[14]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[13]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[12]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[11]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[10]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[9]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[8]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[7]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[6]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[5]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[4]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[3]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[2]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[1]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key1_cnt_reg[0]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[15]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[14]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[13]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[12]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[11]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[10]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[9]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[8]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[7]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[6]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[5]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[4]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[3]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[2]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[1]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key2_cnt_reg[0]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[15]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[14]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[13]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[12]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[11]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[10]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[9]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[8]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[7]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[6]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[5]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[4]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[3]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[2]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[1]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key3_cnt_reg[0]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key0_cnt_reg[15]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 1st driver pin 'g0/key0_cnt_reg[14]/Q' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6859] multi-driven net on pin Q with 2nd driver pin 'GND' [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+INFO: [Common 17-14] Message 'Synth 8-6859' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+CRITICAL WARNING: [Synth 8-6858] multi-driven net Q is connected to at least one constant driver which has been preserved, other driver is ignored [D:/desktop/shuluo/project/4kmania/game_control.v:113]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:17 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |P2S           |         1|
+|2     |blk_mem_gen_0 |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+------------+------+
+|      |Cell        |Count |
++------+------------+------+
+|1     |P2S         |     1|
+|2     |blk_mem_gen |     1|
+|3     |BUFG        |     2|
+|4     |CARRY4      |    53|
+|5     |LUT1        |    14|
+|6     |LUT2        |    30|
+|7     |LUT3        |    97|
+|8     |LUT4        |   258|
+|9     |LUT5        |    70|
+|10    |LUT6        |   608|
+|11    |MUXF7       |   256|
+|12    |MUXF8       |   124|
+|13    |FDCE        |  2146|
+|14    |FDPE        |     9|
+|15    |FDRE        |    57|
+|16    |IBUF        |     4|
+|17    |OBUF        |    34|
++------+------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 192 critical warnings and 83 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:19 . Memory (MB): peak = 1576.203 ; gain = 562.281
+Synthesis Optimization Complete : Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1576.203 ; gain = 663.535
+INFO: [Project 1-571] Translating synthesized netlist
+Parsing EDIF File [D:/desktop/shuluo/project/4kmania/P2S.edf]
+Finished Parsing EDIF File [D:/desktop/shuluo/project/4kmania/P2S.edf]
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1576.203 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 433 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'top' is not ideal for floorplanning, since the cellview 'game_control' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[0]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[10]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[11]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[12]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[13]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[14]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[15]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[16]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[17]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[18]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[19]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[1]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[20]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[21]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[22]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[23]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[24]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[25]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[26]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[27]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[28]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[29]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[2]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[30]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[31]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[32]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[33]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[34]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[35]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[36]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[37]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[38]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[39]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[3]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[40]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[41]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[42]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[43]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[44]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[45]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[46]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[47]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[48]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[49]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[4]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[50]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[51]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[52]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[53]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[54]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[55]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[56]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[57]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[58]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[59]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[5]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[60]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[61]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[62]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[63]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[6]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[7]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[8]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/P_Data_IBUF[9]_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/Serial_IBUF_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/clk_IBUF_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-32] Removing redundant IBUF since it is not being driven by a top-level port. disp1/m7/M2/rst_IBUF_inst 
+Resolution: The tool has removed redundant IBUF. To resolve this warning, check for redundant IBUF in the input design.
+WARNING: [Opt 31-36] Removing redundant OBUF, SEG_PEN_OBUF_inst, from the path connected to top-level port: SEG_PEN 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-36] Removing redundant OBUF, seg_sout_OBUF_inst, from the path connected to top-level port: seg_sout 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-36] Removing redundant OBUF, seg_clrn_OBUF_inst, from the path connected to top-level port: seg_clrn 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+WARNING: [Opt 31-36] Removing redundant OBUF, seg_clk_OBUF_inst, from the path connected to top-level port: seg_clk 
+Resolution: The tool has removed redundant OBUF. To resolve this warning, check for redundant OBUF in the input design.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1576.203 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+系统找不到指定的路径。
+Synth Design complete | Checksum: 975d5b32
+INFO: [Common 17-83] Releasing license: Synthesis
+72 Infos, 204 Warnings, 164 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 1576.203 ; gain = 1081.426
+INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1576.203 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Jun 10 23:04:56 2024...

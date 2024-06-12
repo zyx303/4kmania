@@ -17,11 +17,23 @@ module top(
 
     // output [31:0]   score,          //score
     // output [15:0]   combo           //combo
-    output [3:0]       debugled    //led
+    output [3:0]       debugled,    //led
+
+
+    //xianshi score
+    output seg_clk,
+    output seg_clrn,
+    output SEG_PEN,
+    output seg_sout,
+    output wire [3:0] AN,
+    output wire [7:0] SEGMENT
 );
 // 坐标
 wire [9:0] x;
 wire [8:0] y; 
+
+wire [31:0] score;
+wire [15:0] combo;
 
 // 按键
 wire key_state0,key_state1,key_state2,key_state3; 
@@ -52,6 +64,19 @@ kb_top kb (
     .l(key_state3)
 );
 
+//分数显示
+dispnum disp1(
+    .clk(clk),
+    .clk_div(div_res),
+    .score(score),
+    .combo(combo),
+    .seg_clk(seg_clk),
+    .seg_clrn(seg_clrn),
+    .SEG_PEN(SEG_PEN),
+    .seg_sout(seg_sout),
+    .AN(AN),
+    .SEGMENT(SEGMENT)
+);
 
 wire [479:0] track0,track1,track2,track3;
 
@@ -63,8 +88,8 @@ game_control g0(
     .key1(key_state1),
     .key2(key_state2),
     .key3(key_state3),
-    // .score(score),
-    // .combo(combo),
+     .score(score),
+     .combo(combo),
     .track0(track0),
     .track1(track1),
     .track2(track2),

@@ -3,11 +3,38 @@ set_property -dict {PACKAGE_PIN AC18  IOSTANDARD LVCMOS18} [get_ports {clk}];
 # FPGA RST
 # set_property -dict {PACKAGE_PIN W13   IOSTANDARD LVCMOS18} [get_ports {rst}];
 
-# 八位七段数码�?
-#set_property -dict {PACKAGE_PIN M24   IOSTANDARD LVCMOS33} [get_ports {SEGLED_CLK}];
-#set_property -dict {PACKAGE_PIN M20   IOSTANDARD LVCMOS33} [get_ports {SEGLED_CLR}];
-#set_property -dict {PACKAGE_PIN L24   IOSTANDARD LVCMOS33} [get_ports {SEGLED_DO}];
-#set_property -dict {PACKAGE_PIN R18   IOSTANDARD LVCMOS33} [get_ports {SEGLED_PEN}];
+# 八位七段数码�?
+set_property -dict {PACKAGE_PIN M24   IOSTANDARD LVCMOS33} [get_ports {seg_clk}];
+set_property -dict {PACKAGE_PIN M20   IOSTANDARD LVCMOS33} [get_ports {seg_clrn}];
+set_property -dict {PACKAGE_PIN L24   IOSTANDARD LVCMOS33} [get_ports {seg_sout}];
+set_property -dict {PACKAGE_PIN R18   IOSTANDARD LVCMOS33} [get_ports {SEG_PEN}];
+
+
+# Arduino-Segment & AN
+set_property PACKAGE_PIN AD21 [get_ports {AN[0]}]
+set_property PACKAGE_PIN AC21 [get_ports {AN[1]}]
+set_property PACKAGE_PIN AB21 [get_ports {AN[2]}]
+set_property PACKAGE_PIN AC22 [get_ports {AN[3]}]
+set_property PACKAGE_PIN AB22 [get_ports {SEGMENT[0]}]
+set_property PACKAGE_PIN AD24 [get_ports {SEGMENT[1]}]
+set_property PACKAGE_PIN AD23 [get_ports {SEGMENT[2]}]
+set_property PACKAGE_PIN Y21 [get_ports {SEGMENT[3]}]
+set_property PACKAGE_PIN W20 [get_ports {SEGMENT[4]}]
+set_property PACKAGE_PIN AC24 [get_ports {SEGMENT[5]}]
+set_property PACKAGE_PIN AC23 [get_ports {SEGMENT[6]}]
+set_property PACKAGE_PIN AA22 [get_ports {SEGMENT[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AN[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AN[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AN[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AN[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[7]}]
 
 # switch
 set_property -dict {PACKAGE_PIN AA10  IOSTANDARD LVCMOS15} [get_ports {rst}];

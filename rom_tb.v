@@ -3,9 +3,9 @@
 module rom_tb;
 
     // Parameters
-    parameter ADDR_WIDTH = 11;
-    parameter DATA_WIDTH = 4;
-    parameter MAX_ADDR = 2000;
+    parameter ADDR_WIDTH = 32;
+    parameter DATA_WIDTH = 8;
+    parameter MAX_ADDR = 200000;
 
     // Testbench signals
     reg clk;
@@ -13,7 +13,13 @@ module rom_tb;
     wire [DATA_WIDTH-1:0] data;
 
     // Instantiate the ROM
-    blk_mem_gen_0 rom_inst (
+    // blk_mem_gen_0 rom_inst (
+    //     .clka(clk),
+    //     .addra(addr),
+    //     .douta(data),
+    //     .ena(1'b1)
+    // );
+    music0 rom_inst (
         .clka(clk),
         .addra(addr),
         .douta(data),

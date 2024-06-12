@@ -5,10 +5,10 @@ module game_control(
     output [31:0] score,
     output [15:0] combo, //连击
     input [1:0] sw,//选歌
-    output reg [479:0] track0,track1,track2,track3,  //四个轨道
-    output [10:0] readAddr,
-    output [31:0] timecnt,
-    output [15:0] readcnt
+    output reg [479:0] track0,track1,track2,track3  //四个轨道
+//    output [10:0] readAddr,
+//    output [31:0] timecnt,
+//    output [15:0] readcnt
 );
 
 reg [15:0] combo0,combo1,combo2,combo3; // 连击
@@ -23,7 +23,7 @@ reg [31:0] fallcnt;//下落计数
 wire [3:0] data0,data1,data2,data3;
 
 
-//实例化铺面
+//实例化铺�?
 blk_mem_gen_0 box0(
     .clka(clk),
     .addra(readAddr),
@@ -110,7 +110,6 @@ always @(posedge clk or negedge rst) begin
         readAddr <= 0; 
         miss0 <= 1; miss1 <= 1; miss2 <= 1; miss3 <= 1;
         track0 <= 0; track1 <= 0; track2 <= 0; track3 <= 0;
-        key0_cnt <= 0; key1_cnt <= 0; key2_cnt <= 0; key3_cnt <= 0;
     end 
     //读谱
     else begin
