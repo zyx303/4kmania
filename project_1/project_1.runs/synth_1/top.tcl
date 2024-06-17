@@ -92,6 +92,14 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files D:/desktop/shuluo/project/4kmania/output.coe
 add_files D:/desktop/shuluo/project/4kmania/img0.coe
+add_files D:/desktop/shuluo/project/4kmania/air.coe
+add_files D:/desktop/shuluo/project/4kmania/lacie_beatmap.coe
+add_files D:/desktop/shuluo/project/4kmania/pandora.coe
+add_files D:/desktop/shuluo/project/4kmania/lacie.coe
+add_files d:/desktop/shuluo/project/4kmania/lacie1.coe
+add_files d:/desktop/shuluo/project/4kmania/dango.coe
+add_files d:/desktop/shuluo/project/4kmania/dango_beatmap.coe
+add_files d:/desktop/shuluo/project/4kmania/clannad.coe
 read_verilog -library xil_defaultlib {
   D:/desktop/shuluo/project/4kmania/clk_div.v
   D:/desktop/shuluo/project/4kmania/display.v
@@ -114,12 +122,27 @@ read_verilog -library xil_defaultlib {
   D:/desktop/shuluo/project/4kmania/AND_GATE.v
   D:/desktop/shuluo/project/4kmania/OR_GATE_4_INPUTS.v
   D:/desktop/shuluo/project/4kmania/img.v
+  D:/desktop/shuluo/project/4kmania/pwm_gen.v
+  D:/desktop/shuluo/project/4kmania/get_pitch.v
+  D:/desktop/shuluo/project/4kmania/music_gen.v
 }
 read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/img0_1/img0.xci
 set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/img0_1/img0_ooc.xdc]
 
 read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
 set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
+
+read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/img1/img1.xci
+set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/img1/img1_ooc.xdc]
+
+read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/music0/music0.xci
+set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/music0/music0_ooc.xdc]
+
+read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/music1/music1.xci
+set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/music1/music1_ooc.xdc]
+
+read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/box_rom1/box_rom1.xci
+set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/box_rom1/box_rom1_ooc.xdc]
 
 read_edif D:/desktop/shuluo/project/4kmania/P2S.edf
 OPTRACE "Adding files" END { }

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date                      : Sun Jun 16 20:45:52 2024
+| Date                      : Mon Jun 17 20:34:47 2024
 | Host                      : DESKTOP-1U5LP56 running 64-bit major release  (build 9200)
 | Command                   : report_io -file top_io_placed.rpt
 | Design                    : top
@@ -25,7 +25,7 @@ Table of Contents
 +---------------+
 | Total User IO |
 +---------------+
-|            40 |
+|            41 |
 +---------------+
 
 
@@ -215,7 +215,7 @@ Table of Contents
 | AF22       |             | High Range       | IO_L24N_T3_12                | User IO       |             |      12 |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
 | AF23       |             | High Range       | IO_L22N_T3_12                | User IO       |             |      12 |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
 | AF24       |             | High Range       | IO_L20P_T3_12                | User IO       |             |      12 |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
-| AF25       |             | High Range       | IO_L20N_T3_12                | User IO       |             |      12 |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
+| AF25       | buzzer      | High Range       | IO_L20N_T3_12                | OUTPUT        | LVCMOS33    |      12 |         12 | SLOW |                     |            FP_VTT_50 |           | FIXED      |           |          |      | NONE             |              |                   |              |
 | AF26       |             | High Range       | VCCO_12                      | VCCO          |             |      12 |            |      |                     |                      |      3.30 |            |           |          |      |                  |              |                   |              |
 | B1         |             |                  | MGTXTXN2_116                 | Gigabit       |             |         |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |
 | B2         |             |                  | MGTXTXP2_116                 | Gigabit       |             |         |            |      |                     |                      |           |            |           |          |      |                  |              |                   |              |

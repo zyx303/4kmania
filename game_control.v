@@ -23,18 +23,18 @@ reg [31:0] fallcnt;//下落计数
 wire [3:0] data0,data1,data2,data3;
 
 
-//实例化铺�?
+//实例化铺�??
 blk_mem_gen_0 box0(
     .clka(clk),
     .addra(readAddr),
     .ena(1'b1),
     .douta(data0)
 );
-// box_rom1 box1(
-//     .clk(clk),
-//     .in(readAddr),
-//     .out(data1)
-// );
+box_rom1 box1(
+    .clka(clk),
+    .addra(readAddr),
+    .douta(data1)
+);
 // box_rom2 box2(
 //     .clk(clk),
 //     .in(readAddr),
@@ -51,7 +51,7 @@ reg [3:0] track;
 always @(posedge clk) begin
     case(sw) 
         2'b00: track <= data0;
-        // 2'b01: track <= data1;
+        2'b01: track <= data1;
         // 2'b10: track <= data2;
         // 2'b11: track <= data3;
     endcase 
@@ -94,8 +94,8 @@ end
 
 reg miss0,miss1,miss2,miss3;//miss
 
-parameter[15:0] readspeed = 140;
-parameter[31:0] fallspeed = 200000;
+parameter[15:0] readspeed = 125;
+parameter[31:0] fallspeed = 100000;
 parameter[15:0] hold = 100000;
 
 

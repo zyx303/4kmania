@@ -3,7 +3,7 @@ set_property -dict {PACKAGE_PIN AC18  IOSTANDARD LVCMOS18} [get_ports {clk}];
 # FPGA RST
 # set_property -dict {PACKAGE_PIN W13   IOSTANDARD LVCMOS18} [get_ports {rst}];
 
-# 八位七段数码�??
+# 八位七段数码�??
 set_property -dict {PACKAGE_PIN M24   IOSTANDARD LVCMOS33} [get_ports {seg_clk}];
 set_property -dict {PACKAGE_PIN M20   IOSTANDARD LVCMOS33} [get_ports {seg_clrn}];
 set_property -dict {PACKAGE_PIN L24   IOSTANDARD LVCMOS33} [get_ports {seg_sout}];
@@ -40,7 +40,7 @@ set_property IOSTANDARD LVCMOS33 [get_ports {SEGMENT[7]}]
 set_property -dict {PACKAGE_PIN AA10  IOSTANDARD LVCMOS15} [get_ports {rst}];
 set_property -dict {PACKAGE_PIN AB10  IOSTANDARD LVCMOS15} [get_ports {music_id[0]}];
 set_property -dict {PACKAGE_PIN AA13  IOSTANDARD LVCMOS15} [get_ports {music_id[1]}];
-#set_property -dict {PACKAGE_PIN AA12  IOSTANDARD LVCMOS15} [get_ports {SW[3]}];
+# set_property -dict {PACKAGE_PIN AA12  IOSTANDARD LVCMOS15} [get_ports {SW[0]}];
 #set_property -dict {PACKAGE_PIN Y13   IOSTANDARD LVCMOS15} [get_ports {SW[4]}];
 #set_property -dict {PACKAGE_PIN Y12   IOSTANDARD LVCMOS15} [get_ports {SW[5]}];
 #set_property -dict {PACKAGE_PIN AD11  IOSTANDARD LVCMOS15} [get_ports {SW[6]}];
@@ -85,7 +85,7 @@ set_property -dict {PACKAGE_PIN AA23 IOSTANDARD LVCMOS33} [get_ports {debugled[3
 #set_property -dict {PACKAGE_PIN AF24 IOSTANDARD LVCMOS33} [get_ports {LED[7]}];
 
 # 蜂鸣器与 3.5mm 耳机接口
-#set_property -dict {PACKAGE_PIN AF25 IOSTANDARD LVCMOS33} [get_ports {buzzer}];
+set_property -dict {PACKAGE_PIN AF25 IOSTANDARD LVCMOS33} [get_ports {buzzer}];
 #set_property -dict {PACKAGE_PIN P26 IOSTANDARD LVCMOS33} [get_ports {AUD_PWM}];
 #set_property -dict {PACKAGE_PIN M25 IOSTANDARD LVCMOS33} [get_ports {AUD_SD}];
 

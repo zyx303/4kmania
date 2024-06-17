@@ -7,7 +7,8 @@ module display(
     output hs, vs,     // horizontal and vertical sync
     output [3:0] r,
     output [3:0] g,
-    output [3:0] b
+    output [3:0] b,
+    input [1:0] sw
 );
 
 
@@ -36,7 +37,8 @@ module display(
         .color(img_color),
         .h_count(x),
         .v_count(y),
-        .active(active)
+        .active(active),
+        .sw(sw)
     );
 
 

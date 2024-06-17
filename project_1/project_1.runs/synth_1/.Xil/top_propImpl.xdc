@@ -79,3 +79,5 @@ set_property src_info {type:XDC file:1 line:80 export:INPUT save:INPUT read:READ
 set_property -dict {PACKAGE_PIN Y25  IOSTANDARD LVCMOS33} [get_ports {debugled[2]}];
 set_property src_info {type:XDC file:1 line:81 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN AA23 IOSTANDARD LVCMOS33} [get_ports {debugled[3]}];
+set_property src_info {type:XDC file:1 line:88 export:INPUT save:INPUT read:READ} [current_design]
+set_property -dict {PACKAGE_PIN AF25 IOSTANDARD LVCMOS33} [get_ports {buzzer}];

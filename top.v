@@ -90,13 +90,13 @@ game_control g0(
     .key1(key_state1),
     .key2(key_state2),
     .key3(key_state3),
-     .score(score),
-     .combo(combo),
+    .score(score),
+    .combo(combo),
     .track0(track0),
     .track1(track1),
     .track2(track2),
     .track3(track3),
-    .sw(2'b00)
+    .sw(music_id)
 );
 
 //显示模块
@@ -116,7 +116,8 @@ display disp0 (
    .vs(vs),
    .r(r),
    .g(g),
-   .b(b)
+   .b(b),
+   .sw(music_id)
 );
 
 //音频模块
@@ -124,6 +125,6 @@ music_gen a0(
     .clk(clk),
     .reset_n(rst),
     .beep(buzzer),
-    .sw(2'b00)
+    .sw(music_id)
 );
 endmodule 

@@ -143,6 +143,10 @@ OPTRACE "add files" START { }
   add_files -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1/top.dcp
   read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/img0_1/img0.xci
   read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
+  read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/img1/img1.xci
+  read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/music0/music0.xci
+  read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/music1/music1.xci
+  read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/box_rom1/box_rom1.xci
   read_edif D:/desktop/shuluo/project/4kmania/P2S.edf
 OPTRACE "read constraints: implementation" START { }
   read_xdc D:/desktop/shuluo/project/4kmania/constraints_display.xdc
