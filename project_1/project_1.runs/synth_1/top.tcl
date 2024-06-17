@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 8
+set_param xicom.use_bs_reader 1
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
@@ -90,6 +91,7 @@ set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files D:/desktop/shuluo/project/4kmania/output.coe
+add_files D:/desktop/shuluo/project/4kmania/img0.coe
 read_verilog -library xil_defaultlib {
   D:/desktop/shuluo/project/4kmania/clk_div.v
   D:/desktop/shuluo/project/4kmania/display.v
@@ -111,7 +113,11 @@ read_verilog -library xil_defaultlib {
   D:/desktop/shuluo/project/4kmania/SSeg_Dev.v
   D:/desktop/shuluo/project/4kmania/AND_GATE.v
   D:/desktop/shuluo/project/4kmania/OR_GATE_4_INPUTS.v
+  D:/desktop/shuluo/project/4kmania/img.v
 }
+read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/img0_1/img0.xci
+set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/img0_1/img0_ooc.xdc]
+
 read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
 set_property used_in_implementation false [get_files -all d:/desktop/shuluo/project/4kmania/project_1/project_1.gen/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0_ooc.xdc]
 
@@ -128,6 +134,8 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
 read_xdc D:/desktop/shuluo/project/4kmania/constraints_display.xdc
 set_property used_in_implementation false [get_files D:/desktop/shuluo/project/4kmania/constraints_display.xdc]
 
+read_xdc dont_touch.xdc
+set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
 read_checkpoint -auto_incremental -incremental D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/utils_1/imports/synth_1/kb_top.dcp

@@ -23,7 +23,7 @@ reg [31:0] fallcnt;//下落计数
 wire [3:0] data0,data1,data2,data3;
 
 
-//实例化铺�?
+//实例化铺�?
 blk_mem_gen_0 box0(
     .clka(clk),
     .addra(readAddr),
@@ -95,8 +95,8 @@ end
 reg miss0,miss1,miss2,miss3;//miss
 
 parameter[15:0] readspeed = 140;
-parameter[31:0] fallspeed = 800000;
-parameter[15:0] hold = 10;
+parameter[31:0] fallspeed = 200000;
+parameter[15:0] hold = 100000;
 
 
 //音游逻辑
@@ -132,70 +132,71 @@ always @(posedge clk or negedge rst) begin
                 track1 <= track1 << 1;
                 track2 <= track2 << 1;
                 track3 <= track3 << 1;
+                //miss
+                if(track0[445]&&!track0[444]) begin
+                    if(miss0) begin
+                        combo0 <= 0;combo1 <= 0;combo2 <= 0;combo3 <= 0;
+                        miss0 <= 1;
+                    end
+                    else begin
+                        miss0 <= 1;
+                    end
+                end
+                if(track1[445]&&!track1[444]) begin
+                    if(miss1) begin
+                        combo0 <= 0;combo1 <= 0;combo2 <= 0;combo3 <= 0;
+                        miss1 <= 1;
+                    end
+                    else begin
+                        miss1 <= 1;
+                    end
+                end
+                if(track2[445]&&!track2[444]) begin
+                    if(miss2) begin
+                        combo0 <= 0;combo1 <= 0;combo2 <= 0;combo3 <= 0;
+                        miss2 <= 1;
+                    end
+                    else begin
+                        miss2 <= 1;
+                    end
+                end
+                if(track3[445]&&!track3[444]) begin
+                    if(miss3) begin
+                        combo0 <= 0;combo1 <= 0;combo2 <= 0;combo3 <= 0;
+                        miss3 <= 1;
+                    end
+                    else begin
+                        miss3 <= 1;
+                    end
+                end
             end
                 
 
             //按键得分逻辑
-            //miss
-            if(track0[445]&&!track0[444]) begin
-                if(miss0) begin
-                    combo0 <= 0;
-                    miss0 <= 1;
-                end
-                else begin
-                    miss0 <= 1;
-                end
-            end
-            if(track1[445]&&!track1[444]) begin
-                if(miss1) begin
-                    combo1 <= 0;
-                    miss1 <= 1;
-                end
-                else begin
-                    miss1 <= 1;
-                end
-            end
-            if(track2[445]&&!track2[444]) begin
-                if(miss2) begin
-                    combo2 <= 0;
-                    miss2 <= 1;
-                end
-                else begin
-                    miss2 <= 1;
-                end
-            end
-            if(track3[445]&&!track3[444]) begin
-                if(miss3) begin
-                    combo3 <= 0;
-                    miss3 <= 1;
-                end
-                else begin
-                    miss3 <= 1;
-                end
-            end
+            
 
-            if(track0[445]&&key0_cnt<hold) begin
+            if(track0[445]&&key0&&key0_cnt<hold) begin
                 if(miss0) begin
                     combo0 <= combo0+1;
                     score0 <= score0 + 1;
                     miss0 <= 0;
                 end
             end
-            if(track1[445]&&key1_cnt<hold) begin
+            if(track1[445]&&key1&&key1_cnt<hold) begin
                 if(miss1) begin
                     combo1 <= combo1+1;
                     score1 <= score1 + 1;
                     miss1 <= 0;
                 end
             end
-            if(track2[445]&&key2_cnt<hold) begin
+            if(track2[445]&&key2&&key2_cnt<hold) begin
                 if(miss2) begin
                     combo2 <= combo2+1;
                     score2 <= score2 + 1;
                     miss2 <= 0;
                 end
             end
-            if(track3[445]&&key3_cnt<hold) begin
+            if(track3[445]&&key3&&key3_cnt<hold) begin
                 if(miss3) begin
                     combo3 <= combo3+1;
                     score3 <= score3 + 1;

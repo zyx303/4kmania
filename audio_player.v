@@ -29,7 +29,7 @@ module audio_player (
 
     // Instantiate the PWM generator
     pwm pwm_inst (
-        .clk(clk_div[10]),
+        .clk(clk_div[8]),
         .reset(reset),
         .audio_data(rom_data),
         .pwm_out(pwm_out)
@@ -37,14 +37,14 @@ module audio_player (
 
     // Sample rate counter
     reg [31:0] sample_counter;
-    parameter SAMPLE_RATE = 1000; // Adjust this to match your target sample rate
+    parameter SAMPLE_RATE = 10; // Adjust this to match your target sample rate
 
     always @(posedge clk or negedge reset) begin
         if (!reset) begin
             address <= 0;
             sample_counter <= 0;
         end else begin
-            if (sample_counter == (100000000 / SAMPLE_RATE) - 1) begin
+            if (sample_counter == (50000000 / SAMPLE_RATE) - 1) begin
                 sample_counter <= 0;
                 address <= address + 1;
             end else begin

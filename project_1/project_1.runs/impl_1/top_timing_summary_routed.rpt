@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2023 Advanced Micro Devices, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2023.2 (win64) Build 4029153 Fri Oct 13 20:14:34 MDT 2023
-| Date         : Mon Jun 10 23:05:36 2024
+| Date         : Sun Jun 16 20:46:07 2024
 | Host         : DESKTOP-1U5LP56 running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -report_unconstrained -file top_timing_summary_routed.rpt -pb top_timing_summary_routed.pb -rpx top_timing_summary_routed.rpx -warn_on_violation
 | Design       : top
@@ -44,6 +44,7 @@ Timing Summary Report
 Rule       Severity          Description                  Violations  
 ---------  ----------------  ---------------------------  ----------  
 TIMING-17  Critical Warning  Non-clocked sequential cell  1000        
+TIMING-23  Warning           Combinational loop found     64          
 
 Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
 
@@ -53,24 +54,24 @@ check_timing report
 
 Table of Contents
 -----------------
-1. checking no_clock (2287)
+1. checking no_clock (2414)
 2. checking constant_clock (0)
 3. checking pulse_width_clock (0)
-4. checking unconstrained_internal_endpoints (6675)
+4. checking unconstrained_internal_endpoints (7267)
 5. checking no_input_delay (3)
-6. checking no_output_delay (21)
+6. checking no_output_delay (32)
 7. checking multiple_clock (0)
 8. checking generated_clocks (0)
-9. checking loops (0)
+9. checking loops (64)
 10. checking partial_input_delay (0)
 11. checking partial_output_delay (0)
 12. checking latch_loops (0)
 
-1. checking no_clock (2287)
+1. checking no_clock (2414)
 ---------------------------
- There are 2228 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 2348 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
- There are 59 register/latch pins with no clock driven by root clock pin: clk_div_inst/clkdiv_reg[1]/Q (HIGH)
+ There are 66 register/latch pins with no clock driven by root clock pin: clk_div_inst/clkdiv_reg[1]/Q (HIGH)
 
 
 2. checking constant_clock (0)
@@ -83,9 +84,9 @@ Table of Contents
  There are 0 register/latch pins which need pulse_width check
 
 
-4. checking unconstrained_internal_endpoints (6675)
+4. checking unconstrained_internal_endpoints (7267)
 ---------------------------------------------------
- There are 6675 pins that are not constrained for maximum delay. (HIGH)
+ There are 7267 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -97,9 +98,9 @@ Table of Contents
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
-6. checking no_output_delay (21)
+6. checking no_output_delay (32)
 --------------------------------
- There are 21 ports with no output delay specified. (HIGH)
+ There are 32 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -116,9 +117,9 @@ Table of Contents
  There are 0 generated clocks that are not connected to a clock source.
 
 
-9. checking loops (0)
----------------------
- There are 0 combinational loops in the design.
+9. checking loops (64)
+----------------------
+ There are 64 combinational loops in the design. (HIGH)
 
 
 10. checking partial_input_delay (0)
@@ -144,7 +145,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-        inf        0.000                      0                 6696          inf        0.000                      0                 6696           NA           NA                      NA                    NA  
+        inf        0.000                      0                 7299          inf        0.000                      0                 7299           NA           NA                      NA                    NA  
 
 
 There are no user specified timing constraints.
@@ -213,211 +214,1049 @@ Path Group:  (none)
 From Clock:  
   To Clock:  
 
-Max Delay          6696 Endpoints
-Min Delay          6696 Endpoints
+Max Delay          7299 Endpoints
+Min Delay          7299 Endpoints
 --------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track0_reg[474]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/combo1_reg[5]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.374ns  (logic 0.813ns (8.674%)  route 8.561ns (91.326%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.416ns  (logic 5.772ns (46.490%)  route 6.644ns (53.510%))
+  Logic Levels:           36  (CARRY4=18 FDRE=1 LUT2=16 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.758     9.374    g0/rst
-    SLICE_X9Y63          FDCE                                         f  g0/track0_reg[474]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.563    11.227    kb/O[0]
+    SLICE_X6Y79          LUT6 (Prop_lut6_I2_O)        0.120    11.347 f  kb/miss1_i_2/O
+                         net (fo=17, routed)          1.019    12.366    g0/miss1_reg_1
+    SLICE_X7Y72          LUT2 (Prop_lut2_I1_O)        0.050    12.416 r  g0/combo1[5]_i_1/O
+                         net (fo=1, routed)           0.000    12.416    g0/combo1[5]_i_1_n_0
+    SLICE_X7Y72          FDCE                                         r  g0/combo1_reg[5]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[451]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/combo1_reg[4]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.409ns  (logic 5.765ns (46.460%)  route 6.644ns (53.540%))
+  Logic Levels:           36  (CARRY4=18 FDRE=1 LUT2=16 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X7Y64          FDCE                                         f  g0/track1_reg[451]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.563    11.227    kb/O[0]
+    SLICE_X6Y79          LUT6 (Prop_lut6_I2_O)        0.120    11.347 f  kb/miss1_i_2/O
+                         net (fo=17, routed)          1.019    12.366    g0/miss1_reg_1
+    SLICE_X7Y72          LUT2 (Prop_lut2_I1_O)        0.043    12.409 r  g0/combo1[4]_i_1/O
+                         net (fo=1, routed)           0.000    12.409    g0/combo1[4]_i_1_n_0
+    SLICE_X7Y72          FDCE                                         r  g0/combo1_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[452]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/score1_reg[0]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.396ns  (logic 5.722ns (46.160%)  route 6.674ns (53.840%))
+  Logic Levels:           35  (CARRY4=18 FDRE=1 LUT2=15 LUT5=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X7Y64          FDCE                                         f  g0/track1_reg[452]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.263    10.927    kb/O[0]
+    SLICE_X6Y79          LUT5 (Prop_lut5_I2_O)        0.120    11.047 r  kb/score1[0]_i_1/O
+                         net (fo=32, routed)          1.349    12.396    g0/score1_reg[0]_0
+    SLICE_X7Y61          FDCE                                         r  g0/score1_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[453]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/score1_reg[1]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.396ns  (logic 5.722ns (46.160%)  route 6.674ns (53.840%))
+  Logic Levels:           35  (CARRY4=18 FDRE=1 LUT2=15 LUT5=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X7Y64          FDCE                                         f  g0/track1_reg[453]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.263    10.927    kb/O[0]
+    SLICE_X6Y79          LUT5 (Prop_lut5_I2_O)        0.120    11.047 r  kb/score1[0]_i_1/O
+                         net (fo=32, routed)          1.349    12.396    g0/score1_reg[0]_0
+    SLICE_X7Y61          FDCE                                         r  g0/score1_reg[1]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[454]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/score1_reg[2]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.396ns  (logic 5.722ns (46.160%)  route 6.674ns (53.840%))
+  Logic Levels:           35  (CARRY4=18 FDRE=1 LUT2=15 LUT5=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X7Y64          FDCE                                         f  g0/track1_reg[454]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.263    10.927    kb/O[0]
+    SLICE_X6Y79          LUT5 (Prop_lut5_I2_O)        0.120    11.047 r  kb/score1[0]_i_1/O
+                         net (fo=32, routed)          1.349    12.396    g0/score1_reg[0]_0
+    SLICE_X7Y61          FDCE                                         r  g0/score1_reg[2]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[455]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/score1_reg[3]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.396ns  (logic 5.722ns (46.160%)  route 6.674ns (53.840%))
+  Logic Levels:           35  (CARRY4=18 FDRE=1 LUT2=15 LUT5=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X7Y64          FDCE                                         f  g0/track1_reg[455]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.263    10.927    kb/O[0]
+    SLICE_X6Y79          LUT5 (Prop_lut5_I2_O)        0.120    11.047 r  kb/score1[0]_i_1/O
+                         net (fo=32, routed)          1.349    12.396    g0/score1_reg[0]_0
+    SLICE_X7Y61          FDCE                                         r  g0/score1_reg[3]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[456]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/combo1_reg[9]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.327ns  (logic 5.768ns (46.790%)  route 6.559ns (53.210%))
+  Logic Levels:           36  (CARRY4=18 FDRE=1 LUT2=16 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X7Y64          FDCE                                         f  g0/track1_reg[456]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.563    11.227    kb/O[0]
+    SLICE_X6Y79          LUT6 (Prop_lut6_I2_O)        0.120    11.347 f  kb/miss1_i_2/O
+                         net (fo=17, routed)          0.934    12.281    g0/miss1_reg_1
+    SLICE_X6Y73          LUT2 (Prop_lut2_I1_O)        0.046    12.327 r  g0/combo1[9]_i_1/O
+                         net (fo=1, routed)           0.000    12.327    g0/combo1[9]_i_1_n_0
+    SLICE_X6Y73          FDCE                                         r  g0/combo1_reg[9]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[457]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/combo1_reg[8]/D
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.324ns  (logic 5.765ns (46.777%)  route 6.559ns (53.223%))
+  Logic Levels:           36  (CARRY4=18 FDRE=1 LUT2=16 LUT6=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X7Y64          FDCE                                         f  g0/track1_reg[457]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.563    11.227    kb/O[0]
+    SLICE_X6Y79          LUT6 (Prop_lut6_I2_O)        0.120    11.347 f  kb/miss1_i_2/O
+                         net (fo=17, routed)          0.934    12.281    g0/miss1_reg_1
+    SLICE_X6Y73          LUT2 (Prop_lut2_I1_O)        0.043    12.324 r  g0/combo1[8]_i_1/O
+                         net (fo=1, routed)           0.000    12.324    g0/combo1[8]_i_1_n_0
+    SLICE_X6Y73          FDCE                                         r  g0/combo1_reg[8]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[461]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/score1_reg[4]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.246ns  (logic 0.813ns (8.794%)  route 8.432ns (91.206%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.315ns  (logic 5.722ns (46.464%)  route 6.593ns (53.536%))
+  Logic Levels:           35  (CARRY4=18 FDRE=1 LUT2=15 LUT5=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.629     9.246    g0/rst
-    SLICE_X6Y64          FDCE                                         f  g0/track1_reg[461]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.263    10.927    kb/O[0]
+    SLICE_X6Y79          LUT5 (Prop_lut5_I2_O)        0.120    11.047 r  kb/score1[0]_i_1/O
+                         net (fo=32, routed)          1.268    12.315    g0/score1_reg[0]_0
+    SLICE_X7Y62          FDCE                                         r  g0/score1_reg[4]/CE
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 rst
-                            (input port)
-  Destination:            g0/track1_reg[406]/CLR
+  Source:                 kb/s_reg/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            g0/score1_reg[5]/CE
   Path Group:             (none)
   Path Type:              Max at Slow Process Corner
-  Data Path Delay:        9.187ns  (logic 0.813ns (8.851%)  route 8.374ns (91.149%))
-  Logic Levels:           2  (IBUF=1 LUT1=1)
+  Data Path Delay:        12.315ns  (logic 5.722ns (46.464%)  route 6.593ns (53.536%))
+  Logic Levels:           35  (CARRY4=18 FDRE=1 LUT2=15 LUT5=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    AA10                                              0.000     0.000 r  rst (IN)
-                         net (fo=0)                   0.000     0.000    rst
-    AA10                 IBUF (Prop_ibuf_I_O)         0.770     0.770 r  rst_IBUF_inst/O
-                         net (fo=2, routed)           2.803     3.573    g0/rst_IBUF
-    SLICE_X19Y70         LUT1 (Prop_lut1_I0_O)        0.043     3.616 f  g0/readcnt[15]_i_3/O
-                         net (fo=2155, routed)        5.570     9.187    g0/rst
-    SLICE_X8Y61          FDCE                                         f  g0/track1_reg[406]/CLR
+    SLICE_X0Y57          FDRE                         0.000     0.000 r  kb/s_reg/C
+    SLICE_X0Y57          FDRE (Prop_fdre_C_Q)         0.223     0.223 f  kb/s_reg/Q
+                         net (fo=23, routed)          1.023     1.246    kb/debugled_OBUF[1]
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.043     1.289 r  kb/combo1[15]_i_31/O
+                         net (fo=1, routed)           0.000     1.289    kb/combo1[15]_i_31_n_0
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     1.507 r  kb/combo1_reg[15]_i_23/O[1]
+                         net (fo=1, routed)           0.356     1.863    kb/combo1_reg[15]_i_23_n_6
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.123     1.986 r  kb/combo1[15]_i_30/O
+                         net (fo=1, routed)           0.000     1.986    kb/g0/key1_cnt[1]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     2.268 r  kb/combo1_reg[15]_i_23/O[2]
+                         net (fo=1, routed)           0.355     2.623    kb/combo1_reg[15]_i_23_n_5
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.122     2.745 r  kb/combo1[15]_i_29/O
+                         net (fo=1, routed)           0.000     2.745    kb/g0/key1_cnt[2]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     2.923 r  kb/combo1_reg[15]_i_23/O[3]
+                         net (fo=1, routed)           0.101     3.024    kb/combo1_reg[15]_i_23_n_4
+    SLICE_X7Y76          LUT2 (Prop_lut2_I1_O)        0.120     3.144 r  kb/combo1[15]_i_28/O
+                         net (fo=1, routed)           0.000     3.144    kb/g0/key1_cnt[3]
+    SLICE_X7Y76          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     3.337 r  kb/combo1_reg[15]_i_23/CO[3]
+                         net (fo=1, routed)           0.000     3.337    kb/combo1_reg[15]_i_23_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     3.448 r  kb/combo1_reg[15]_i_15/O[0]
+                         net (fo=1, routed)           0.102     3.550    kb/combo1_reg[15]_i_15_n_7
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.124     3.674 r  kb/combo1[15]_i_27/O
+                         net (fo=1, routed)           0.000     3.674    kb/g0/key1_cnt[4]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     3.892 r  kb/combo1_reg[15]_i_15/O[1]
+                         net (fo=2, routed)           0.362     4.254    kb/combo1_reg[15]_i_15_n_6
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.123     4.377 r  kb/combo1[15]_i_26/O
+                         net (fo=1, routed)           0.000     4.377    kb/g0/key1_cnt[5]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     4.659 r  kb/combo1_reg[15]_i_15/O[2]
+                         net (fo=2, routed)           0.362     5.021    kb/combo1_reg[15]_i_15_n_5
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.122     5.143 r  kb/combo1[15]_i_25/O
+                         net (fo=1, routed)           0.000     5.143    kb/g0/key1_cnt[6]
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     5.321 r  kb/combo1_reg[15]_i_15/O[3]
+                         net (fo=2, routed)           0.107     5.428    kb/combo1_reg[15]_i_15_n_4
+    SLICE_X7Y77          LUT2 (Prop_lut2_I1_O)        0.120     5.548 r  kb/combo1[15]_i_24/O
+                         net (fo=1, routed)           0.000     5.548    kb/combo1[15]_i_24_n_0
+    SLICE_X7Y77          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     5.741 r  kb/combo1_reg[15]_i_15/CO[3]
+                         net (fo=1, routed)           0.000     5.741    kb/combo1_reg[15]_i_15_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     5.852 r  kb/combo1_reg[15]_i_9/O[0]
+                         net (fo=2, routed)           0.267     6.119    kb/combo1_reg[15]_i_9_n_7
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.124     6.243 r  kb/combo1[15]_i_22/O
+                         net (fo=1, routed)           0.000     6.243    kb/combo1[15]_i_22_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     6.461 r  kb/combo1_reg[15]_i_9/O[1]
+                         net (fo=2, routed)           0.364     6.826    kb/combo1_reg[15]_i_9_n_6
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.123     6.949 r  kb/combo1[15]_i_21/O
+                         net (fo=1, routed)           0.000     6.949    kb/combo1[15]_i_21_n_0
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282     7.231 r  kb/combo1_reg[15]_i_9/O[2]
+                         net (fo=2, routed)           0.362     7.593    kb/combo1_reg[15]_i_9_n_5
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.122     7.715 r  kb/combo1[15]_i_20/O
+                         net (fo=1, routed)           0.000     7.715    kb/g0/key1_cnt[10]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178     7.893 r  kb/combo1_reg[15]_i_9/O[3]
+                         net (fo=2, routed)           0.107     8.000    kb/combo1_reg[15]_i_9_n_4
+    SLICE_X7Y78          LUT2 (Prop_lut2_I1_O)        0.120     8.120 r  kb/combo1[15]_i_19/O
+                         net (fo=1, routed)           0.000     8.120    kb/g0/key1_cnt[11]
+    SLICE_X7Y78          CARRY4 (Prop_carry4_S[3]_CO[3])
+                                                      0.193     8.313 r  kb/combo1_reg[15]_i_9/CO[3]
+                         net (fo=1, routed)           0.000     8.313    kb/combo1_reg[15]_i_9_n_0
+    SLICE_X7Y79          CARRY4 (Prop_carry4_CI_O[0])
+                                                      0.111     8.424 r  kb/combo1_reg[15]_i_4/O[0]
+                         net (fo=2, routed)           0.467     8.891    kb/combo1_reg[15]_i_4_n_7
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.124     9.015 r  kb/combo1[15]_i_13/O
+                         net (fo=1, routed)           0.000     9.015    kb/g0/key1_cnt[12]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[0]_O[1])
+                                                      0.218     9.233 r  kb/combo1_reg[15]_i_4/O[1]
+                         net (fo=2, routed)           0.362     9.595    kb/combo1_reg[15]_i_4_n_6
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.123     9.718 r  kb/combo1[15]_i_12/O
+                         net (fo=1, routed)           0.000     9.718    kb/g0/key1_cnt[13]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[1]_O[2])
+                                                      0.282    10.000 r  kb/combo1_reg[15]_i_4/O[2]
+                         net (fo=2, routed)           0.364    10.364    kb/combo1_reg[15]_i_4_n_5
+    SLICE_X7Y79          LUT2 (Prop_lut2_I1_O)        0.122    10.486 r  kb/combo1[15]_i_11/O
+                         net (fo=1, routed)           0.000    10.486    kb/g0/key1_cnt[14]
+    SLICE_X7Y79          CARRY4 (Prop_carry4_S[2]_O[3])
+                                                      0.178    10.664 f  kb/combo1_reg[15]_i_4/O[3]
+                         net (fo=4, routed)           0.263    10.927    kb/O[0]
+    SLICE_X6Y79          LUT5 (Prop_lut5_I2_O)        0.120    11.047 r  kb/score1[0]_i_1/O
+                         net (fo=32, routed)          1.268    12.315    g0/score1_reg[0]_0
+    SLICE_X7Y62          FDCE                                         r  g0/score1_reg[5]/CE
   -------------------------------------------------------------------    -------------------
 
 
@@ -427,173 +1266,173 @@ Slack:                    inf
 Min Delay Paths
 --------------------------------------------------------------------------------------
 Slack:                    inf
-  Source:                 g0/track2_reg[267]/C
+  Source:                 g0/track3_reg[126]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track2_reg[268]/D
+  Destination:            g0/track3_reg[127]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.152ns  (logic 0.091ns (59.905%)  route 0.061ns (40.095%))
+  Data Path Delay:        0.153ns  (logic 0.091ns (59.421%)  route 0.062ns (40.579%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X13Y52         FDCE                         0.000     0.000 r  g0/track2_reg[267]/C
-    SLICE_X13Y52         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track2_reg[267]/Q
-                         net (fo=2, routed)           0.061     0.152    g0/track2[267]
-    SLICE_X12Y52         FDCE                                         r  g0/track2_reg[268]/D
+    SLICE_X29Y75         FDCE                         0.000     0.000 r  g0/track3_reg[126]/C
+    SLICE_X29Y75         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track3_reg[126]/Q
+                         net (fo=2, routed)           0.062     0.153    g0/track3[126]
+    SLICE_X28Y75         FDCE                                         r  g0/track3_reg[127]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track1_reg[474]/C
+  Source:                 g0/track3_reg[62]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track1_reg[475]/D
+  Destination:            g0/track3_reg[63]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.152ns  (logic 0.091ns (59.751%)  route 0.061ns (40.249%))
+  Data Path Delay:        0.153ns  (logic 0.091ns (59.421%)  route 0.062ns (40.579%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X5Y62          FDCE                         0.000     0.000 r  g0/track1_reg[474]/C
-    SLICE_X5Y62          FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track1_reg[474]/Q
-                         net (fo=2, routed)           0.061     0.152    g0/track1[474]
-    SLICE_X4Y62          FDCE                                         r  g0/track1_reg[475]/D
+    SLICE_X27Y68         FDCE                         0.000     0.000 r  g0/track3_reg[62]/C
+    SLICE_X27Y68         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track3_reg[62]/Q
+                         net (fo=2, routed)           0.062     0.153    g0/track3[62]
+    SLICE_X26Y68         FDCE                                         r  g0/track3_reg[63]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track1_reg[70]/C
+  Source:                 g0/track2_reg[466]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track1_reg[71]/D
+  Destination:            g0/track2_reg[467]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.153ns  (logic 0.091ns (59.295%)  route 0.062ns (40.705%))
+  Data Path Delay:        0.169ns  (logic 0.107ns (63.311%)  route 0.062ns (36.689%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y55         FDCE                         0.000     0.000 r  g0/track1_reg[70]/C
-    SLICE_X15Y55         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track1_reg[70]/Q
-                         net (fo=2, routed)           0.062     0.153    g0/track1[70]
-    SLICE_X14Y55         FDCE                                         r  g0/track1_reg[71]/D
+    SLICE_X2Y86          FDCE                         0.000     0.000 r  g0/track2_reg[466]/C
+    SLICE_X2Y86          FDCE (Prop_fdce_C_Q)         0.107     0.107 r  g0/track2_reg[466]/Q
+                         net (fo=2, routed)           0.062     0.169    g0/track2[466]
+    SLICE_X3Y86          FDCE                                         r  g0/track2_reg[467]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track1_reg[345]/C
+  Source:                 g0/track1_reg[140]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track1_reg[346]/D
+  Destination:            g0/track1_reg[141]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.163ns  (logic 0.100ns (61.300%)  route 0.063ns (38.700%))
+  Data Path Delay:        0.187ns  (logic 0.091ns (48.580%)  route 0.096ns (51.420%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X3Y62          FDCE                         0.000     0.000 r  g0/track1_reg[345]/C
-    SLICE_X3Y62          FDCE (Prop_fdce_C_Q)         0.100     0.100 r  g0/track1_reg[345]/Q
-                         net (fo=2, routed)           0.063     0.163    g0/track1[345]
-    SLICE_X2Y62          FDCE                                         r  g0/track1_reg[346]/D
+    SLICE_X32Y91         FDCE                         0.000     0.000 r  g0/track1_reg[140]/C
+    SLICE_X32Y91         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track1_reg[140]/Q
+                         net (fo=2, routed)           0.096     0.187    g0/track1[140]
+    SLICE_X32Y91         FDCE                                         r  g0/track1_reg[141]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track2_reg[167]/C
+  Source:                 g0/track2_reg[343]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track2_reg[168]/D
+  Destination:            g0/track2_reg[344]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.163ns  (logic 0.100ns (61.300%)  route 0.063ns (38.700%))
+  Data Path Delay:        0.188ns  (logic 0.091ns (48.521%)  route 0.097ns (51.479%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X23Y48         FDCE                         0.000     0.000 r  g0/track2_reg[167]/C
-    SLICE_X23Y48         FDCE (Prop_fdce_C_Q)         0.100     0.100 r  g0/track2_reg[167]/Q
-                         net (fo=2, routed)           0.063     0.163    g0/track2[167]
-    SLICE_X22Y48         FDCE                                         r  g0/track2_reg[168]/D
+    SLICE_X5Y92          FDCE                         0.000     0.000 r  g0/track2_reg[343]/C
+    SLICE_X5Y92          FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track2_reg[343]/Q
+                         net (fo=2, routed)           0.097     0.188    g0/track2[343]
+    SLICE_X7Y92          FDCE                                         r  g0/track2_reg[344]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track1_reg[270]/C
+  Source:                 g0/track3_reg[48]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track1_reg[271]/D
+  Destination:            g0/track3_reg[49]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.168ns  (logic 0.107ns (63.556%)  route 0.061ns (36.444%))
+  Data Path Delay:        0.189ns  (logic 0.091ns (48.187%)  route 0.098ns (51.813%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y59          FDCE                         0.000     0.000 r  g0/track1_reg[270]/C
-    SLICE_X8Y59          FDCE (Prop_fdce_C_Q)         0.107     0.107 r  g0/track1_reg[270]/Q
-                         net (fo=2, routed)           0.061     0.168    g0/track1[270]
-    SLICE_X9Y59          FDCE                                         r  g0/track1_reg[271]/D
+    SLICE_X25Y68         FDCE                         0.000     0.000 r  g0/track3_reg[48]/C
+    SLICE_X25Y68         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track3_reg[48]/Q
+                         net (fo=2, routed)           0.098     0.189    g0/track3[48]
+    SLICE_X27Y68         FDCE                                         r  g0/track3_reg[49]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track2_reg[302]/C
+  Source:                 g0/track1_reg[215]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track2_reg[303]/D
+  Destination:            g0/track1_reg[216]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.168ns  (logic 0.107ns (63.556%)  route 0.061ns (36.444%))
+  Data Path Delay:        0.190ns  (logic 0.091ns (47.961%)  route 0.099ns (52.039%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y51          FDCE                         0.000     0.000 r  g0/track2_reg[302]/C
-    SLICE_X8Y51          FDCE (Prop_fdce_C_Q)         0.107     0.107 r  g0/track2_reg[302]/Q
-                         net (fo=2, routed)           0.061     0.168    g0/track2[302]
-    SLICE_X9Y51          FDCE                                         r  g0/track2_reg[303]/D
+    SLICE_X39Y91         FDCE                         0.000     0.000 r  g0/track1_reg[215]/C
+    SLICE_X39Y91         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track1_reg[215]/Q
+                         net (fo=2, routed)           0.099     0.190    g0/track1[215]
+    SLICE_X39Y92         FDCE                                         r  g0/track1_reg[216]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track3_reg[238]/C
+  Source:                 g0/track3_reg[325]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track3_reg[239]/D
+  Destination:            g0/track3_reg[326]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.169ns  (logic 0.107ns (63.490%)  route 0.062ns (36.510%))
+  Data Path Delay:        0.191ns  (logic 0.091ns (47.724%)  route 0.100ns (52.276%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X8Y43          FDCE                         0.000     0.000 r  g0/track3_reg[238]/C
-    SLICE_X8Y43          FDCE (Prop_fdce_C_Q)         0.107     0.107 r  g0/track3_reg[238]/Q
-                         net (fo=2, routed)           0.062     0.169    g0/track3[238]
-    SLICE_X9Y43          FDCE                                         r  g0/track3_reg[239]/D
+    SLICE_X25Y75         FDCE                         0.000     0.000 r  g0/track3_reg[325]/C
+    SLICE_X25Y75         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track3_reg[325]/Q
+                         net (fo=2, routed)           0.100     0.191    g0/track3[325]
+    SLICE_X27Y76         FDCE                                         r  g0/track3_reg[326]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track0_reg[429]/C
+  Source:                 g0/track0_reg[358]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track0_reg[430]/D
+  Destination:            g0/track0_reg[359]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.171ns  (logic 0.107ns (62.688%)  route 0.064ns (37.312%))
+  Data Path Delay:        0.191ns  (logic 0.091ns (47.574%)  route 0.100ns (52.426%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X10Y75         FDCE                         0.000     0.000 r  g0/track0_reg[429]/C
-    SLICE_X10Y75         FDCE (Prop_fdce_C_Q)         0.107     0.107 r  g0/track0_reg[429]/Q
-                         net (fo=2, routed)           0.064     0.171    g0/track0[429]
-    SLICE_X11Y75         FDCE                                         r  g0/track0_reg[430]/D
+    SLICE_X11Y80         FDCE                         0.000     0.000 r  g0/track0_reg[358]/C
+    SLICE_X11Y80         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track0_reg[358]/Q
+                         net (fo=2, routed)           0.100     0.191    g0/track0[358]
+    SLICE_X11Y79         FDCE                                         r  g0/track0_reg[359]/D
   -------------------------------------------------------------------    -------------------
 
 Slack:                    inf
-  Source:                 g0/track3_reg[198]/C
+  Source:                 g0/track1_reg[422]/C
                             (rising edge-triggered cell FDCE)
-  Destination:            g0/track3_reg[199]/D
+  Destination:            g0/track1_reg[423]/D
   Path Group:             (none)
   Path Type:              Min at Fast Process Corner
-  Data Path Delay:        0.188ns  (logic 0.091ns (48.383%)  route 0.097ns (51.617%))
+  Data Path Delay:        0.191ns  (logic 0.091ns (47.548%)  route 0.100ns (52.452%))
   Logic Levels:           1  (FDCE=1)
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
-    SLICE_X15Y41         FDCE                         0.000     0.000 r  g0/track3_reg[198]/C
-    SLICE_X15Y41         FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track3_reg[198]/Q
-                         net (fo=2, routed)           0.097     0.188    g0/track3[198]
-    SLICE_X12Y41         FDCE                                         r  g0/track3_reg[199]/D
+    SLICE_X7Y87          FDCE                         0.000     0.000 r  g0/track1_reg[422]/C
+    SLICE_X7Y87          FDCE (Prop_fdce_C_Q)         0.091     0.091 r  g0/track1_reg[422]/Q
+                         net (fo=2, routed)           0.100     0.191    g0/track1[422]
+    SLICE_X7Y86          FDCE                                         r  g0/track1_reg[423]/D
   -------------------------------------------------------------------    -------------------
 
 

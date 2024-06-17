@@ -3,7 +3,7 @@ set_property -dict {PACKAGE_PIN AC18  IOSTANDARD LVCMOS18} [get_ports {clk}];
 # FPGA RST
 # set_property -dict {PACKAGE_PIN W13   IOSTANDARD LVCMOS18} [get_ports {rst}];
 
-# 八位七段数码�?
+# 八位七段数码�??
 set_property -dict {PACKAGE_PIN M24   IOSTANDARD LVCMOS33} [get_ports {seg_clk}];
 set_property -dict {PACKAGE_PIN M20   IOSTANDARD LVCMOS33} [get_ports {seg_clrn}];
 set_property -dict {PACKAGE_PIN L24   IOSTANDARD LVCMOS33} [get_ports {seg_sout}];

@@ -28,6 +28,18 @@ module display(
     parameter [11:0] deep_grey = 12'b0100_0100_0100; 
 
 
+    //image
+    wire [11:0] img_color;
+    wire active;
+    img img0_inst (
+        .clk(clk),
+        .color(img_color),
+        .h_count(x),
+        .v_count(y),
+        .active(active)
+    );
+
+
     // Define red color input
 //    assign d_in = rdn?12'h000:color; // 12-bit color input 
 //    assign d_in = (x>=50 && x<=475)?white:red;
@@ -117,6 +129,9 @@ module display(
                     color <= black;
                 end
             end
+        else if(active) begin
+            color <= img_color;
+        end
         else begin
             color <= black;
         end

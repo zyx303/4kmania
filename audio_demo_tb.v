@@ -12,10 +12,10 @@ module audio_player_tb;
     audio_player uut (
         .clk(clk),
         .reset(reset),
-        .pwm_out(pwm_out),
-        .sample_counter(sample_counter),
-        .address(address),
-        .rom_data(rom_data)
+        .pwm_out(pwm_out)
+//        .sample_counter(sample_counter),
+//        .address(address),
+//        .rom_data(rom_data)
     );
 
     // 时钟生成
@@ -25,7 +25,7 @@ module audio_player_tb;
 
     // 测试过程
     initial begin
-        // 初始�?
+        // 初始�??
         clk = 0;
         reset = 0;  // Assuming active-high reset
         #100;
@@ -33,8 +33,8 @@ module audio_player_tb;
         // 释放复位
         reset = 1;
 
-        // 观察 pwm_out 的输�?
-        // 由于这是�?个音频信号，你可能需要使用仿真工具的波形查看器来观察�?
+        // 观察 pwm_out 的输�??
+        // 由于这是�??个音频信号，你可能需要使用仿真工具的波形查看器来观察�??
 
         // 结束仿真
         $finish;

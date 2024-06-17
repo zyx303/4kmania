@@ -125,6 +125,7 @@ set ACTIVE_STEP init_design
 set rc [catch {
   create_msg_db init_design.pb
   set_param chipscope.maxJobs 8
+  set_param xicom.use_bs_reader 1
   set_param runs.launchOptions { -jobs 16  }
 OPTRACE "create in-memory project" START { }
   create_project -in_memory -part xc7k160tffg676-2L
@@ -140,6 +141,7 @@ OPTRACE "set parameters" START { }
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
   add_files -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.runs/synth_1/top.dcp
+  read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/img0_1/img0.xci
   read_ip -quiet D:/desktop/shuluo/project/4kmania/project_1/project_1.srcs/sources_1/ip/blk_mem_gen_0/blk_mem_gen_0.xci
   read_edif D:/desktop/shuluo/project/4kmania/P2S.edf
 OPTRACE "read constraints: implementation" START { }

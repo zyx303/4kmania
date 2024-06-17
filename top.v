@@ -26,7 +26,9 @@ module top(
     output SEG_PEN,
     output seg_sout,
     output wire [3:0] AN,
-    output wire [7:0] SEGMENT
+    output wire [7:0] SEGMENT,
+
+    output buzzer
 );
 // 坐标
 wire [9:0] x;
@@ -118,9 +120,10 @@ display disp0 (
 );
 
 //音频模块
-// audio a0(
-//     .clk(clk),
-//     .rst(rst),
-//     .audio(audio)
-// );
+music_gen a0(
+    .clk(clk),
+    .reset_n(rst),
+    .beep(buzzer),
+    .sw(2'b00)
+);
 endmodule 

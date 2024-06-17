@@ -11,12 +11,12 @@ module dispnum(
     output wire [7:0] SEGMENT
 );
 // Module you design in Lab7
-DisplayNumber m6(    .clk(clk), .hexs(combo), .LEs(4'b1111),         
+DisplayNumber m6(    .clk(clk), .hexs(combo), .LEs(4'b0000),         
                             .points(4'b0), .rst(1'b0),                             
                             .AN(AN), .SEGMENT(SEGMENT), .clk_div(clk_div));
 
 // Attachment
-SSeg_Dev m7(.clk(clk), .flash(clk_div[25]), .Hexs(score), .LES(8'b1111_1111),
+SSeg_Dev m7(.clk(clk), .flash(clk_div[25]), .Hexs(score), .LES(8'b0000_0000),
                 .point(8'b0), .rst(1'b0), .Start(clk_div[20]), .seg_clk(seg_clk),
                 .seg_clrn(seg_clrn), .SEG_PEN(SEG_PEN), .seg_sout(seg_sout));
 
