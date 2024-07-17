@@ -1,3 +1,4 @@
+//testing
 `timescale 1ns/1ps
 module clk_tb;
     reg clk;
